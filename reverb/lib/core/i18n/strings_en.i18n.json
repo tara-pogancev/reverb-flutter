@@ -1,0 +1,22 @@
+{
+  "general": {
+    "appName": "Reverb",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "confirm": "Confirm",
+    "save": "Save",
+    "comingSoon": "Feature coming soon! 🎉",
+    "viewAll": "View all",
+    "addNew": "Add new",
+    "createNew": "Create new",
+    "upload": "Upload",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "add": "Add",
+    "remove": "Remove",
+    "preview": "Preview",
+    "retry": "Retry",
+    "refresh": "Refresh"
+  }
+}
