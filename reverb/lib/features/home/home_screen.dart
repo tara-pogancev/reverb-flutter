@@ -4,6 +4,9 @@ import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
+import 'package:reverb/features/home/header_reverb_switch.dart';
+import 'package:reverb/features/home/player_bar.dart';
 import 'package:reverb/features/home/song_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,6 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppScaffold(
       appBar: AppBar(
         title: Text(Translations.of(context).general.appName),
+        actions: [
+          HeaderReverbSwitch(),
+        ],
+        backgroundColor: AppColorScheme.of(context).lightBlue,
       ),
       child: Column(
         children: [
@@ -44,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
+          PlayerBar(),
         ],
       ),
     );

@@ -1,12 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:reverb/core/model/audio_effect.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:reverb/core/injection_container.dart';
 
 part 'audio_effects_state.dart';
 
-class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
-  AudioEffectsCubit() : super(AudioEffectsInitial());
+class AudioEffectsCubit extends Cubit<AudioEffectsState> {
+  AudioEffectsCubit() : super(Loaded());
+  final AudioPlayer player = IC.getIt();
 
   static const platform = MethodChannel('audio/effects');
 
@@ -21,19 +23,21 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
     }
   }
 
-  void setPitch(double pitch) {
-    
-  }
+  void setPitch(double pitch) {}
 
-  @override
-  AudioEffectsState? fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
-  }
-
-  @override
-  Map<String, dynamic>? toJson(AudioEffectsState state) {
-    // TODO: implement toJson
-    throw UnimplementedError();
+  void toggleReverb() {
+    if (state is Loaded) {
+      final loadedState = state as Loaded;
+      if (!loadedState.isReverb) {
+        player.setPitch(0.5);
+        player.setSpeed(0.5);
+        addReverb(player.androidAudioSessionId ?? 0);
+        emit(Loaded(isReverb: true));
+      } else {
+        player.setPitch(1);
+        player.setSpeed(1);
+        emit(Loaded(isReverb: false));
+      }
+    }
   }
 }

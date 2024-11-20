@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
+import 'package:reverb/core/injection_container.dart';
+
+class PlayerBar extends StatefulWidget {
+  const PlayerBar({super.key});
+
+  @override
+  State<PlayerBar> createState() => _PlayerBarState();
+}
+
+class _PlayerBarState extends State<PlayerBar> {
+  final AudioPlayerCubit cubit = IC.getIt();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AudioPlayerCubit, AudioPlayerState>(
+      bloc: cubit,
+      builder: (context, state) {
+        return switch (state) {
+          Error() => Icon(Icons.error),
+          Playing() => Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    state.currentSong.title,
+                  ),
+                  Text(
+                    state.currentSong.artist ?? "-",
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.repeat),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.skip_previous),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.pause),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.skip_next),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.shuffle),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          Inactive() => Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Text("Nothing.")],
+              ),
+            ),
+        };
+      },
+    );
+  }
+}

@@ -9,14 +9,12 @@ part 'audio_player_state.dart';
 class AudioPlayerCubit extends Cubit<AudioPlayerState> {
   final AudioPlayer player = IC.getIt();
 
-  AudioPlayerCubit() : super(AudioPlayerInitial());
+  AudioPlayerCubit() : super(Inactive());
 
   void playSong(SongModel song) async {
     await player.setFilePath(song.data);
     player.play();
-    player.setPitch(0.5);
-    player.setSpeed(0.7);
 
-    emit(Playing());
+    emit(Playing(currentSong: song));
   }
 }
