@@ -18,5 +18,9 @@
     "preview": "Preview",
     "retry": "Retry",
     "refresh": "Refresh"
+  },
+
+  "error": {
+    "fetchingSongs": "Error fetching songs."
   }
 }
