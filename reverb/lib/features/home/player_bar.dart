@@ -44,7 +44,7 @@ class _PlayerBarState extends State<PlayerBar> {
                         icon: Icon(Icons.skip_previous),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () => cubit.togglePause(),
                         icon: Icon(Icons.pause),
                       ),
                       IconButton(

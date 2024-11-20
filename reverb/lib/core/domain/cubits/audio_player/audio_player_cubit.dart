@@ -17,4 +17,12 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
 
     emit(Playing(currentSong: song));
   }
+
+  togglePause() {
+    if (player.playing) {
+      player.pause();
+    } else {
+      player.play();
+    }
+  }
 }
