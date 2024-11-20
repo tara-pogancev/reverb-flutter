@@ -23,6 +23,10 @@ dependencies:
   adaptive_theme: ^3.6.0
   google_fonts: ^6.2.1
   path_provider: ^2.1.5
+  just_audio: ^0.9.42
+  just_audio_background: ^0.0.1-beta.13
+  permission_handler: ^11.3.1
+  on_audio_query_forked: ^2.9.1
 
 dev_dependencies:
   flutter_test:
