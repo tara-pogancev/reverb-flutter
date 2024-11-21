@@ -2,7 +2,6 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart';
@@ -21,7 +20,6 @@ void main() async {
 
   await IC.setUp();
 
-  GoogleFonts.config.allowRuntimeFetching = true;
   runApp(TranslationProvider(child: const ReverbApp()));
 }
 

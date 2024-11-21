@@ -7,7 +7,6 @@ final darkMaterialTheme = ThemeData(
       brightness: Brightness.dark,
     ),
     fontFamily: "Raleway",
-    fontFamilyFallback: const ["NotoColorEmoji"],
     useMaterial3: true,
     brightness: Brightness.dark);
 
@@ -17,6 +16,5 @@ final lightMaterialTheme = ThemeData(
       brightness: Brightness.light,
     ),
     fontFamily: "Raleway",
-    fontFamilyFallback: const ["NotoColorEmoji"],
     useMaterial3: true,
     brightness: Brightness.light);

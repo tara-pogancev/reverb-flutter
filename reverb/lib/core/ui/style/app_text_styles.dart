@@ -12,6 +12,15 @@ class AppTextStyles {
     );
   }
 
+  TextStyle get title {
+    return TextStyle(
+      fontSize: 32,
+      color: AppColorScheme.of(context).black,
+      fontWeight: FontWeight.w600,
+      fontFamily: "BrunoAceSC",
+    );
+  }
+
   TextStyle get primary {
     return TextStyle(
       fontWeight: FontWeight.bold,
