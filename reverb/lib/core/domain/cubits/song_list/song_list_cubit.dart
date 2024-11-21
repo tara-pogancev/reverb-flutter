@@ -12,7 +12,7 @@ part 'song_list_state.dart';
 class SongListCubit extends Cubit<SongListState> {
   final AudioQueryRepository audioQueryRepository = IC.getIt();
 
-  SongListCubit() : super(SongListInitial()) {
+  SongListCubit() : super(Loading()) {
     fetchSongs();
   }
 

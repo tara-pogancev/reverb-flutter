@@ -5,8 +5,6 @@ sealed class AudioPlayerState {}
 
 final class Inactive extends AudioPlayerState {}
 
-final class Error extends AudioPlayerState {}
-
 final class Playing extends AudioPlayerState {
   final SongModel currentSong;
   final bool isPlaying;

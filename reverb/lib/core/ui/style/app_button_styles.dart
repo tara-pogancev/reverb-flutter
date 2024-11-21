@@ -7,16 +7,24 @@ class AppButtonStyles {
 
   AppButtonStyles.of(this.context);
 
-  ButtonStyle get lightBlue {
-    return ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(defaultBorderRadius),
-        ),
-        textStyle: const TextStyle(fontWeight: FontWeight.bold),
-        minimumSize: const Size(50, 50),
-        foregroundColor: AppColorScheme.of(context).black,
-        backgroundColor: AppColorScheme.of(context).lightBlue);
-  }
+  ButtonStyle get black => ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(defaultBorderRadius),
+      ),
+      foregroundColor: AppColorScheme.of(context).white,
+      backgroundColor: AppColorScheme.of(context).black);
 
-  get outlinedRed => null;
+  ButtonStyle get gray => ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(defaultBorderRadius),
+      ),
+      foregroundColor: AppColorScheme.of(context).mediumGray,
+      backgroundColor: AppColorScheme.of(context).black);
+
+  ButtonStyle get white => ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(defaultBorderRadius),
+      ),
+      foregroundColor: AppColorScheme.of(context).black,
+      backgroundColor: AppColorScheme.of(context).white);
 }

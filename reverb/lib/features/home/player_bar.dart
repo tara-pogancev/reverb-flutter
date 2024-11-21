@@ -21,7 +21,7 @@ class _PlayerBarState extends State<PlayerBar> {
       bloc: cubit,
       builder: (context, state) {
         return switch (state) {
-          Error() => Icon(Icons.error),
+          Inactive() => Container(),
           Playing() => InkWell(
               onTap: () => context.push(Routes.songPlayer),
               child: Column(
@@ -61,13 +61,6 @@ class _PlayerBarState extends State<PlayerBar> {
                     ],
                   ),
                 ],
-              ),
-            ),
-          Inactive() => Container(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text("Nothing.")],
               ),
             ),
         };

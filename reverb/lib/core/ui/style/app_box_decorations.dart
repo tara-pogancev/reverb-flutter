@@ -7,11 +7,11 @@ class AppBoxDecorations {
 
   AppBoxDecorations.of(this.context);
 
-  BoxDecoration get outlinedMediumGreen {
+  BoxDecoration get outlinedGray {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(defaultBorderRadius),
       border: Border.all(
-        color: AppColorScheme.of(context).mediumGreen,
+        color: AppColorScheme.of(context).mediumGray,
         width: 2,
       ),
     );

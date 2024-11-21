@@ -39,6 +39,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final TranslationsGeneralEn general = TranslationsGeneralEn._(_root);
 	late final TranslationsErrorEn error = TranslationsErrorEn._(_root);
+	late final TranslationsPlayerEn player = TranslationsPlayerEn._(_root);
 }
 
 // Path: general
@@ -78,6 +79,16 @@ class TranslationsErrorEn {
 	String get fetchingSongs => 'Error fetching songs.';
 }
 
+// Path: player
+class TranslationsPlayerEn {
+	TranslationsPlayerEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get unknownArtist => 'Unknown artist';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -102,6 +113,7 @@ extension on Translations {
 			case 'general.retry': return 'Retry';
 			case 'general.refresh': return 'Refresh';
 			case 'error.fetchingSongs': return 'Error fetching songs.';
+			case 'player.unknownArtist': return 'Unknown artist';
 			default: return null;
 		}
 	}

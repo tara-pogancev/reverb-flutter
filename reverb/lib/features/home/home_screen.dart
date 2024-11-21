@@ -5,6 +5,7 @@ import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
+import 'package:reverb/core/ui/widgets/app_error_widget.dart';
 import 'package:reverb/features/home/header_reverb_switch.dart';
 import 'package:reverb/features/home/player_bar.dart';
 import 'package:reverb/features/home/song_card.dart';
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           HeaderReverbSwitch(),
         ],
-        backgroundColor: AppColorScheme.of(context).lightBlue,
+        backgroundColor: AppColorScheme.of(context).mediumGray,
       ),
       child: Column(
         children: [
@@ -36,10 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
               bloc: songListCubit,
               builder: (context, state) {
                 return switch (state) {
-                  SongListInitial() => Icon(Icons.question_answer),
+                  Error() => AppErrorWidget(),
                   Loading() => CircularProgressIndicator(),
                   PermissionRequired() => Icon(Icons.question_answer),
-                  Error() => Icon(Icons.question_answer),
                   Loaded() => ListView.builder(
                       itemCount: state.songs.length,
                       itemBuilder: (BuildContext context, int index) {

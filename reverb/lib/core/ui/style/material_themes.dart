@@ -13,7 +13,7 @@ final darkMaterialTheme = ThemeData(
 
 final lightMaterialTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
-      seedColor: lightAppColorScheme.black,
+      seedColor: lightAppColorScheme.white,
       brightness: Brightness.light,
     ),
     fontFamily: "Raleway",

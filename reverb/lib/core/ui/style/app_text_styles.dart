@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
 
 class AppTextStyles {
   BuildContext? context;
@@ -8,6 +9,28 @@ class AppTextStyles {
   TextStyle get bold {
     return const TextStyle(
       fontWeight: FontWeight.bold,
+    );
+  }
+
+  TextStyle get primary {
+    return TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 14,
+      color: AppColorScheme.of(context).black,
+    );
+  }
+
+  TextStyle get secondary {
+    return TextStyle(
+      fontSize: 12,
+      color: AppColorScheme.of(context).darkGray,
+    );
+  }
+
+  TextStyle get ternary {
+    return TextStyle(
+      fontSize: 10,
+      color: AppColorScheme.of(context).mediumGray,
     );
   }
 }

@@ -3,8 +3,6 @@ part of 'song_list_cubit.dart';
 @immutable
 sealed class SongListState {}
 
-final class SongListInitial extends SongListState {}
-
 final class Loading extends SongListState {}
 
 final class PermissionRequired extends SongListState {}

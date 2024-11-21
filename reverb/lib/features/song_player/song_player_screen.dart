@@ -22,7 +22,6 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
         builder: (context, state) {
           return switch (state) {
             Inactive() => Text("Nothing to play rn"),
-            Error() => Text("Error"),
             Playing() => Text(state.currentSong.title),
           };
         },

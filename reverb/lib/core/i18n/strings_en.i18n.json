@@ -22,5 +22,9 @@
 
   "error": {
     "fetchingSongs": "Error fetching songs."
+  },
+
+  "player": {
+    "unknownArtist": "Unknown artist"
   }
 }

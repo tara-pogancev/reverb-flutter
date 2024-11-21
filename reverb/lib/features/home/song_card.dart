@@ -13,7 +13,7 @@ class SongCard extends StatelessWidget {
   }
 
   void toggleFavorite() {
-    // TODO
+    // TODO: Favorite logic
   }
 
   @override
@@ -23,12 +23,13 @@ class SongCard extends StatelessWidget {
       subtitle: (song.artist != null) ? Text(song.artist!) : null,
       leading: QueryArtworkWidget(id: song.id, type: ArtworkType.AUDIO),
       onTap: () => playSong(),
-      trailing: IconButton(
-        onPressed: () => toggleFavorite(),
-        icon: Icon(
-          (false) ? Icons.favorite : Icons.favorite_outline,
-        ),
-      ),
+      // TODO: Favorite logic
+      // trailing: IconButton(
+      //   onPressed: () => toggleFavorite(),
+      //   icon: Icon(
+      //     (false) ? Icons.favorite : Icons.favorite_outline,
+      //   ),
+      // ),
     );
   }
 }
