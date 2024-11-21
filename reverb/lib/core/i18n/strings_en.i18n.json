@@ -24,6 +24,12 @@
     "fetchingSongs": "Error fetching songs."
   },
 
+  "songList": {
+    "delete": "Delete",
+    "rename": "Rename",
+    "addToPlaylist": "Add to Playlist"
+  },
+
   "player": {
     "unknownArtist": "Unknown artist",
     "permissionRequired": "Permission required!",

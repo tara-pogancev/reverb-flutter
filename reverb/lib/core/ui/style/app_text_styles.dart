@@ -23,15 +23,15 @@ class AppTextStyles {
 
   TextStyle get primary {
     return TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 18,
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
       color: AppColorScheme.of(context).black,
     );
   }
 
   TextStyle get secondary {
     return TextStyle(
-      fontSize: 14,
+      fontSize: 12,
       color: AppColorScheme.of(context).darkGray,
     );
   }
@@ -40,6 +40,7 @@ class AppTextStyles {
     return TextStyle(
       fontSize: 12,
       color: AppColorScheme.of(context).mediumGray,
+      fontStyle: FontStyle.italic,
     );
   }
 }

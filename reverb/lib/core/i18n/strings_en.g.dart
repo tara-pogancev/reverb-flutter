@@ -39,6 +39,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final TranslationsGeneralEn general = TranslationsGeneralEn._(_root);
 	late final TranslationsErrorEn error = TranslationsErrorEn._(_root);
+	late final TranslationsSongListEn songList = TranslationsSongListEn._(_root);
 	late final TranslationsPlayerEn player = TranslationsPlayerEn._(_root);
 }
 
@@ -77,6 +78,18 @@ class TranslationsErrorEn {
 
 	// Translations
 	String get fetchingSongs => 'Error fetching songs.';
+}
+
+// Path: songList
+class TranslationsSongListEn {
+	TranslationsSongListEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get delete => 'Delete';
+	String get rename => 'Rename';
+	String get addToPlaylist => 'Add to Playlist';
 }
 
 // Path: player
@@ -118,6 +131,9 @@ extension on Translations {
 			case 'general.retry': return 'Retry';
 			case 'general.refresh': return 'Refresh';
 			case 'error.fetchingSongs': return 'Error fetching songs.';
+			case 'songList.delete': return 'Delete';
+			case 'songList.rename': return 'Rename';
+			case 'songList.addToPlaylist': return 'Add to Playlist';
 			case 'player.unknownArtist': return 'Unknown artist';
 			case 'player.permissionRequired': return 'Permission required!';
 			case 'player.pleaseEnableAppAccess': return 'Please enable app\'s access to music.';

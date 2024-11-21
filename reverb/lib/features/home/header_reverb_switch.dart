@@ -1,9 +1,12 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/ui/widgets/crazy_switch.dart';
 
 class HeaderReverbSwitch extends StatefulWidget {
   const HeaderReverbSwitch({super.key});
@@ -15,25 +18,40 @@ class HeaderReverbSwitch extends StatefulWidget {
 class _HeaderReverbSwitchState extends State<HeaderReverbSwitch> {
   final AudioEffectsCubit effectsCubit = IC.getIt();
 
-  void toggleReverb(value) {
-    if (value) {
-      AdaptiveTheme.of(context).setDark();
-    } else {
-      AdaptiveTheme.of(context).setLight();
-    }
+  late bool initialValue;
+
+  void toggleReverb() {
+    HapticFeedback.vibrate();
     effectsCubit.toggleReverb();
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    initialValue = effectsCubit.state.isReverb;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AudioEffectsCubit, AudioEffectsState>(
+    return BlocListener<AudioEffectsCubit, AudioEffectsState>(
       bloc: effectsCubit,
-      builder: (context, state) {
-        return Switch(
-          value: state.isReverb,
-          onChanged: (value) => toggleReverb(value),
-        );
+      listenWhen: (previous, current) => previous.isReverb != current.isReverb,
+      listener: (context, state) {
+        print(state.isReverb);
+        if (effectsCubit.state.isReverb) {
+          AdaptiveTheme.of(context).setDark();
+        } else {
+          AdaptiveTheme.of(context).setLight();
+        }
       },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: defaultElementPadding),
+        child: CrazySwitch(
+          value: initialValue,
+          onChanged: () => toggleReverb(),
+        ),
+      ),
     );
   }
 }

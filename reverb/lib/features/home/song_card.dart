@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
+import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
+import 'package:reverb/core/ui/style/app_text_styles.dart';
+import 'package:reverb/core/ui/widgets/app_popup_menu_item.dart';
 
 class SongCard extends StatelessWidget {
   const SongCard({super.key, required this.song});
@@ -16,20 +20,65 @@ class SongCard extends StatelessWidget {
     // TODO: Favorite logic
   }
 
+  renameSong(BuildContext context) {
+    // TODO: Rename song logic
+  }
+
+  deleteSong(BuildContext context) {
+    // TODO: Delete song logic
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(song.title + song.title),
-      subtitle: (song.artist != null) ? Text(song.artist!) : null,
-      leading: QueryArtworkWidget(id: song.id, type: ArtworkType.AUDIO),
-      onTap: () => playSong(),
-      // TODO: Favorite logic
-      // trailing: IconButton(
-      //   onPressed: () => toggleFavorite(),
-      //   icon: Icon(
-      //     (false) ? Icons.favorite : Icons.favorite_outline,
-      //   ),
-      // ),
+    const double audioArtworkSize = 40;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+      child: ListTile(
+        title: Text(
+          song.title + song.title,
+          style: AppTextStyles.of(context).primary,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+        subtitle: Text(
+          (song.artist != null)
+              ? song.artist!
+              : Translations.of(context).player.unknownArtist,
+          style: AppTextStyles.of(context).secondary,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        leading: ClipOval(
+            child: QueryArtworkWidget(
+          id: song.id,
+          type: ArtworkType.AUDIO,
+          artworkWidth: audioArtworkSize,
+          artworkHeight: audioArtworkSize,
+          size: 100,
+        )),
+        onTap: () => playSong(),
+        trailing: PopupMenuButton(
+          icon: Icon(
+            Icons.more_horiz,
+            color: AppColorScheme.of(context).mediumGray,
+          ),
+          itemBuilder: (BuildContext context) => [
+            AppPopupMenuItem.get(
+              context: context,
+              onPressed: () => renameSong(context),
+              icon: Icons.edit,
+              text: Translations.of(context).songList.rename,
+            ),
+            AppPopupMenuItem.get(
+              context: context,
+              onPressed: () => deleteSong(context),
+              icon: Icons.delete_outline,
+              text: Translations.of(context).songList.delete,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
