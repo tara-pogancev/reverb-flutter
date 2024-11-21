@@ -24,5 +24,17 @@ class MainActivity: FlutterActivity() {
                 else -> result.notImplemented()
             }
         }
+
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
+            when (call.method) {
+                "removeReverb" -> {
+                    val audioSessionId = call.argument<Int>("audioSessionId") ?: 0
+                    val reverb = EnvironmentalReverb(0, audioSessionId)
+                    reverb.enabled = false
+                    result.success("Reverb removed")
+                }
+                else -> result.notImplemented()
+            }
+        }
     }
 }

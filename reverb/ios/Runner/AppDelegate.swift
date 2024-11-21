@@ -33,6 +33,28 @@ let channel = FlutterMethodChannel(name: "audio/effects", binaryMessenger: contr
             }
         }
 
+        channel.setMethodCallHandler { (call, result) in
+            if call.method == "removeReverb" {
+                // Ensure the audio engine is stopped before making changes
+                self.audioEngine.stop()
+        
+                // Reconfigure audio connections to bypass the reverb node
+                self.audioEngine.disconnectNodeOutput(self.audioEngine.mainMixerNode)
+                self.audioEngine.disconnectNodeOutput(self.audioEngine.outputNode)
+
+                self.audioEngine.connect(self.audioEngine.mainMixerNode, to: self.audioEngine.outputNode, format: nil)
+
+                do {
+                    try self.audioEngine.start()
+                    result("Reverb removed")
+                } catch {
+                    result(FlutterError(code: "ERROR", message: "Failed to remove reverb", details: nil))
+                }
+            } else {
+                result(FlutterMethodNotImplemented)
+            }
+        }
+
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

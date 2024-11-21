@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart';
+import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart';
 import 'package:reverb/core/injection_container.dart';
 
 class HeaderReverbSwitch extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HeaderReverbSwitchState extends State<HeaderReverbSwitch> {
       bloc: effectsCubit,
       builder: (context, state) {
         return Switch(
-          value: (state is Loaded) ? state.isReverb : false,
+          value: state.isReverb,
           onChanged: (value) => toggleReverb(value),
         );
       },

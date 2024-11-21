@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/router/app_router.dart';
 
 class PlayerBar extends StatefulWidget {
   const PlayerBar({super.key});
@@ -20,7 +22,8 @@ class _PlayerBarState extends State<PlayerBar> {
       builder: (context, state) {
         return switch (state) {
           Error() => Icon(Icons.error),
-          Playing() => Container(
+          Playing() => InkWell(
+              onTap: () => context.push(Routes.songPlayer),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
