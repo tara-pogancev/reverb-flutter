@@ -24,21 +24,21 @@ class AppTextStyles {
   TextStyle get primary {
     return TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 14,
+      fontSize: 18,
       color: AppColorScheme.of(context).black,
     );
   }
 
   TextStyle get secondary {
     return TextStyle(
-      fontSize: 12,
+      fontSize: 14,
       color: AppColorScheme.of(context).darkGray,
     );
   }
 
   TextStyle get ternary {
     return TextStyle(
-      fontSize: 10,
+      fontSize: 12,
       color: AppColorScheme.of(context).mediumGray,
     );
   }

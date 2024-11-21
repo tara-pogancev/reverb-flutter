@@ -87,6 +87,11 @@ class TranslationsPlayerEn {
 
 	// Translations
 	String get unknownArtist => 'Unknown artist';
+	String get permissionRequired => 'Permission required!';
+	String get pleaseEnableAppAccess => 'Please enable app\'s access to music.';
+	String get allowAccess => 'Allow access';
+	String get allowInSettings => 'If the button doesn\'t prompt you with allowing access, please enable it in the app\'s settings.';
+	String get noSongsAvailable => 'No songs available.';
 }
 
 /// Flat map(s) containing all translations.
@@ -114,6 +119,11 @@ extension on Translations {
 			case 'general.refresh': return 'Refresh';
 			case 'error.fetchingSongs': return 'Error fetching songs.';
 			case 'player.unknownArtist': return 'Unknown artist';
+			case 'player.permissionRequired': return 'Permission required!';
+			case 'player.pleaseEnableAppAccess': return 'Please enable app\'s access to music.';
+			case 'player.allowAccess': return 'Allow access';
+			case 'player.allowInSettings': return 'If the button doesn\'t prompt you with allowing access, please enable it in the app\'s settings.';
+			case 'player.noSongsAvailable': return 'No songs available.';
 			default: return null;
 		}
 	}

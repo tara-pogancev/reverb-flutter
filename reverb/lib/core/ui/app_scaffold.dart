@@ -7,13 +7,13 @@ class AppScaffold extends StatelessWidget {
     super.key,
     this.appBar,
     required this.child,
-    this.ignorePadding = false,
+    this.inclidePadding = false,
     this.drawer,
   });
 
   final AppBar? appBar;
   final Widget child;
-  final bool ignorePadding;
+  final bool inclidePadding;
   final Widget? drawer;
 
   @override
@@ -24,7 +24,7 @@ class AppScaffold extends StatelessWidget {
       drawer: drawer,
       body: SafeArea(
         child: Padding(
-          padding: (ignorePadding)
+          padding: (!inclidePadding)
               ? EdgeInsets.zero
               : EdgeInsets.all(defaultPagePadding),
           child: child,

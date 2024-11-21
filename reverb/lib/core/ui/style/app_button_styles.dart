@@ -18,8 +18,8 @@ class AppButtonStyles {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(defaultBorderRadius),
       ),
-      foregroundColor: AppColorScheme.of(context).mediumGray,
-      backgroundColor: AppColorScheme.of(context).black);
+      foregroundColor: AppColorScheme.of(context).black,
+      backgroundColor: AppColorScheme.of(context).mediumGray);
 
   ButtonStyle get white => ElevatedButton.styleFrom(
       shape: RoundedRectangleBorder(

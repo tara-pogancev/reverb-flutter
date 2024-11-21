@@ -25,6 +25,11 @@
   },
 
   "player": {
-    "unknownArtist": "Unknown artist"
+    "unknownArtist": "Unknown artist",
+    "permissionRequired": "Permission required!",
+    "pleaseEnableAppAccess": "Please enable app's access to music.",
+    "allowAccess": "Allow access",
+    "allowInSettings": "If the button doesn't prompt you with allowing access, please enable it in the app's settings.",
+    "noSongsAvailable": "No songs available."
   }
 }

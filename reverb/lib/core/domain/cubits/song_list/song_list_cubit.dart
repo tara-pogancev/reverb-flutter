@@ -12,13 +12,20 @@ part 'song_list_state.dart';
 class SongListCubit extends Cubit<SongListState> {
   final AudioQueryRepository audioQueryRepository = IC.getIt();
 
-  SongListCubit() : super(Loading()) {
+  SongListCubit() : super(Error()) {
     fetchSongs();
+  }
+
+  void requestPermission() async {
+    final result = await audioQueryRepository.checkAndRequestPermission();
+    if (result) {
+      fetchSongs();
+    }
   }
 
   void fetchSongs() async {
     try {
-      if (await audioQueryRepository.checkAndRequestPermission()) {
+      if (await audioQueryRepository.hasPermission()) {
         List<SongModel> songs =
             await audioQueryRepository.fetchAudioFromDevice();
         emit(Loaded(songs: songs));

@@ -5,6 +5,7 @@ import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
 import 'package:reverb/core/ui/widgets/app_error_widget.dart';
 import 'package:reverb/features/home/home_screen_app_bar.dart';
+import 'package:reverb/features/home/permission_required_widget.dart';
 import 'package:reverb/features/home/player_bar.dart';
 import 'package:reverb/features/home/song_card.dart';
 
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return switch (state) {
                   Error() => AppErrorWidget(),
                   Loading() => CircularProgressIndicator(),
-                  PermissionRequired() => Icon(Icons.question_answer),
+                  PermissionRequired() => PermissionRequiredWidget(),
                   Loaded() => ListView.builder(
                       itemCount: state.songs.length,
                       itemBuilder: (BuildContext context, int index) {

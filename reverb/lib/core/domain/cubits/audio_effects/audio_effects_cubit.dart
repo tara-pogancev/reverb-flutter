@@ -43,6 +43,15 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
     emit(state.copyWith(pitch: speed));
   }
 
+  void toggleEcho() {
+    emit(state.copyWith(hasEcho: !state.hasEcho));
+    if (state.hasEcho) {
+      addReverb(player.androidAudioSessionId ?? 0);
+    } else {
+      removeReverb(player.androidAudioSessionId ?? 0);
+    }
+  }
+
   void toggleReverb() {
     if (!state.isReverb) {
       player.setPitch(state.pitch);

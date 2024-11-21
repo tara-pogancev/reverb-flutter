@@ -5,6 +5,10 @@ class AudioQueryRepository {
 
   final OnAudioQuery audioQuery;
 
+  Future<bool> hasPermission() async {
+    return audioQuery.permissionsStatus();
+  }
+
   Future<bool> checkAndRequestPermission() async {
     return audioQuery.checkAndRequest();
   }
