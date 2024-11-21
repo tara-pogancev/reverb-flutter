@@ -5,17 +5,18 @@ import 'package:reverb/core/ui/style/app_color_scheme.dart';
 const double switchHeight = 30.0;
 const double switchWidth = 80.0;
 
-class CrazySwitch extends StatefulWidget {
-  const CrazySwitch({super.key, required this.value, required this.onChanged});
+class GlowingSwitch extends StatefulWidget {
+  const GlowingSwitch(
+      {super.key, required this.value, required this.onChanged});
 
   final bool value;
   final Function() onChanged;
 
   @override
-  State<CrazySwitch> createState() => _CrazySwitchState();
+  State<GlowingSwitch> createState() => _GlowingSwitchState();
 }
 
-class _CrazySwitchState extends State<CrazySwitch>
+class _GlowingSwitchState extends State<GlowingSwitch>
     with SingleTickerProviderStateMixin {
   late bool isChecked;
   final Duration _duration = Durations.long1;

@@ -6,7 +6,7 @@ import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart';
 import 'package:reverb/core/injection_container.dart';
-import 'package:reverb/core/ui/widgets/crazy_switch.dart';
+import 'package:reverb/core/ui/widgets/glowing_switch.dart';
 
 class HeaderReverbSwitch extends StatefulWidget {
   const HeaderReverbSwitch({super.key});
@@ -47,7 +47,7 @@ class _HeaderReverbSwitchState extends State<HeaderReverbSwitch> {
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: defaultElementPadding),
-        child: CrazySwitch(
+        child: GlowingSwitch(
           value: initialValue,
           onChanged: () => toggleReverb(),
         ),
