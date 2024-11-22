@@ -9,12 +9,14 @@ class AppScaffold extends StatelessWidget {
     required this.child,
     this.inclidePadding = false,
     this.drawer,
+    this.bottomNavigationBar,
   });
 
   final AppBar? appBar;
   final Widget child;
   final bool inclidePadding;
   final Widget? drawer;
+  final Widget? bottomNavigationBar;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class AppScaffold extends StatelessWidget {
       backgroundColor: AppColorScheme.of(context).white,
       appBar: appBar,
       drawer: drawer,
+      bottomNavigationBar: bottomNavigationBar,
       body: SafeArea(
         child: Padding(
           padding: (!inclidePadding)

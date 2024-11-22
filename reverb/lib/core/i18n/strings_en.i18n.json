@@ -20,6 +20,13 @@
     "refresh": "Refresh"
   },
 
+  "bottomBar": {
+    "music": "Music",
+    "search": "Search",
+    "playlists": "Playlists",
+    "artists": "Artists"
+  },
+
   "error": {
     "fetchingSongs": "Error fetching songs."
   },

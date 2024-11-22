@@ -8,14 +8,14 @@ import 'package:reverb/features/home/header_reverb_switch.dart';
 class HomeScreenAppBar {
   static AppBar get(BuildContext context) => AppBar(
         toolbarHeight: 100,
-        leading: Padding(
-          padding: const EdgeInsets.only(
-              left: smallElementPadding, top: 30, bottom: 30),
-          child: IconButton(
-              onPressed: () {
-                // TODO: Add side menu
-              },
-              icon: Icon(Icons.sort)),
+        leading: Builder(
+          builder: (context) => Padding(
+            padding: const EdgeInsets.only(
+                left: smallElementPadding, top: 30, bottom: 30),
+            child: IconButton(
+                onPressed: () => Scaffold.of(context).openDrawer(),
+                icon: Icon(Icons.sort)),
+          ),
         ),
         backgroundColor: AppColorScheme.of(context).white,
         title: Text(

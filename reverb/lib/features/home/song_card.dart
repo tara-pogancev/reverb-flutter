@@ -31,6 +31,9 @@ class SongCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double audioArtworkSize = 40;
+    final artistName = (song.artist != "<unknown>" || song.artist != null)
+        ? song.artist
+        : Translations.of(context).player.unknownArtist;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
@@ -42,21 +45,26 @@ class SongCard extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         subtitle: Text(
-          (song.artist != null)
-              ? song.artist!
-              : Translations.of(context).player.unknownArtist,
+          artistName!,
           style: AppTextStyles.of(context).secondary,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
         leading: ClipOval(
-            child: QueryArtworkWidget(
-          id: song.id,
-          type: ArtworkType.AUDIO,
-          artworkWidth: audioArtworkSize,
-          artworkHeight: audioArtworkSize,
-          size: 100,
-        )),
+          child: QueryArtworkWidget(
+            id: song.id,
+            type: ArtworkType.AUDIO,
+            artworkWidth: audioArtworkSize,
+            artworkHeight: audioArtworkSize,
+            quality: 30,
+            size: 30,
+            artworkBorder: BorderRadius.circular(30),
+            nullArtworkWidget: Icon(
+              Icons.image_not_supported_outlined,
+              size: audioArtworkSize,
+            ),
+          ),
+        ),
         onTap: () => playSong(),
         trailing: PopupMenuButton(
           icon: Icon(

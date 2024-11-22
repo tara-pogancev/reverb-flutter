@@ -38,6 +38,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final TranslationsGeneralEn general = TranslationsGeneralEn._(_root);
+	late final TranslationsBottomBarEn bottomBar = TranslationsBottomBarEn._(_root);
 	late final TranslationsErrorEn error = TranslationsErrorEn._(_root);
 	late final TranslationsSongListEn songList = TranslationsSongListEn._(_root);
 	late final TranslationsPlayerEn player = TranslationsPlayerEn._(_root);
@@ -68,6 +69,19 @@ class TranslationsGeneralEn {
 	String get preview => 'Preview';
 	String get retry => 'Retry';
 	String get refresh => 'Refresh';
+}
+
+// Path: bottomBar
+class TranslationsBottomBarEn {
+	TranslationsBottomBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get music => 'Music';
+	String get search => 'Search';
+	String get playlists => 'Playlists';
+	String get artists => 'Artists';
 }
 
 // Path: error
@@ -130,6 +144,10 @@ extension on Translations {
 			case 'general.preview': return 'Preview';
 			case 'general.retry': return 'Retry';
 			case 'general.refresh': return 'Refresh';
+			case 'bottomBar.music': return 'Music';
+			case 'bottomBar.search': return 'Search';
+			case 'bottomBar.playlists': return 'Playlists';
+			case 'bottomBar.artists': return 'Artists';
 			case 'error.fetchingSongs': return 'Error fetching songs.';
 			case 'songList.delete': return 'Delete';
 			case 'songList.rename': return 'Rename';

@@ -92,21 +92,23 @@ class _GlowingSwitchState extends State<GlowingSwitch>
       builder: (context, child) {
         return GestureDetector(
           onTap: () {
-            if (_isCooldown) return;
+            if (!_isCooldown) {
+              setState(() {
+                _isCooldown = true;
+              });
+              widget.onChanged();
+              setState(() {
+                if (_animationController.isCompleted) {
+                  _animationController.reverse();
+                } else {
+                  _animationController.forward();
+                }
 
-            widget.onChanged();
-            setState(() {
-              _isCooldown = true;
-              if (_animationController.isCompleted) {
-                _animationController.reverse();
-              } else {
-                _animationController.forward();
-              }
+                isChecked = !isChecked;
+              });
 
-              isChecked = !isChecked;
-            });
-
-            startCooldown();
+              startCooldown();
+            }
           },
           child: Container(
             width: switchWidth,
