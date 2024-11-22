@@ -44,20 +44,29 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
     }
   }
 
-  void setPitch(double pitch) {
+  // void setPitch(double pitch) {
+  //   if (state.isReverb) {
+  //     player.setPitch(pitch);
+  //   }
+
+  //   emit(state.copyWith(pitch: pitch));
+  // }
+
+  // void setSpeed(double speed) {
+  //   if (state.isReverb) {
+  //     player.setSpeed(speed);
+  //   }
+
+  //   emit(state.copyWith(speed: speed));
+  // }
+
+  void setSpeedAndPitch(double value) {
     if (state.isReverb) {
-      player.setPitch(pitch);
+      player.setSpeed(value);
+      player.setPitch(value);
     }
 
-    emit(state.copyWith(pitch: pitch));
-  }
-
-  void setSpeed(double speed) {
-    if (state.isReverb) {
-      player.setSpeed(speed);
-    }
-
-    emit(state.copyWith(speed: speed));
+    emit(state.copyWith(speed: value, pitch: value));
   }
 
   void toggleEcho() {

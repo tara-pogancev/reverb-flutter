@@ -44,5 +44,14 @@
     "allowAccess": "Allow access",
     "allowInSettings": "If the button doesn't prompt you with allowing access, please enable it in the app's settings.",
     "noSongsAvailable": "No songs available."
+  },
+
+  "audioEffects": {
+    "audioEffects": "Audio Effects",
+    "on": "ON",
+    "off": "OFF",
+    "reverb": "Reverb",
+    "echo": "Echo",
+    "speedAndPitch": "Speed + Pitch"
   }
 }

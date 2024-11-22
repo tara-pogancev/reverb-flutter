@@ -9,3 +9,8 @@ const largeElementPadding = 45.0;
 const smallSpacer = SizedBox.square(dimension: 10);
 const defaultSpacer = SizedBox.square(dimension: 20);
 const largeSpacer = SizedBox.square(dimension: 30);
+
+const maxSpeed = 1.5;
+const minSpeed = 0.5;
+const maxPitch = 1.8;
+const minPitch = 0.2;

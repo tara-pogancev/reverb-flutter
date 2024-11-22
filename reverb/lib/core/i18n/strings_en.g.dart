@@ -42,6 +42,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsErrorEn error = TranslationsErrorEn._(_root);
 	late final TranslationsSongListEn songList = TranslationsSongListEn._(_root);
 	late final TranslationsPlayerEn player = TranslationsPlayerEn._(_root);
+	late final TranslationsAudioEffectsEn audioEffects = TranslationsAudioEffectsEn._(_root);
 }
 
 // Path: general
@@ -121,6 +122,21 @@ class TranslationsPlayerEn {
 	String get noSongsAvailable => 'No songs available.';
 }
 
+// Path: audioEffects
+class TranslationsAudioEffectsEn {
+	TranslationsAudioEffectsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get audioEffects => 'Audio Effects';
+	String get on => 'ON';
+	String get off => 'OFF';
+	String get reverb => 'Reverb';
+	String get echo => 'Echo';
+	String get speedAndPitch => 'Speed + Pitch';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -158,6 +174,12 @@ extension on Translations {
 			case 'player.allowAccess': return 'Allow access';
 			case 'player.allowInSettings': return 'If the button doesn\'t prompt you with allowing access, please enable it in the app\'s settings.';
 			case 'player.noSongsAvailable': return 'No songs available.';
+			case 'audioEffects.audioEffects': return 'Audio Effects';
+			case 'audioEffects.on': return 'ON';
+			case 'audioEffects.off': return 'OFF';
+			case 'audioEffects.reverb': return 'Reverb';
+			case 'audioEffects.echo': return 'Echo';
+			case 'audioEffects.speedAndPitch': return 'Speed + Pitch';
 			default: return null;
 		}
 	}
