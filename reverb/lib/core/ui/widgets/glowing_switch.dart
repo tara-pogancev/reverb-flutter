@@ -48,7 +48,7 @@ class _GlowingSwitchState extends State<GlowingSwitch>
   }
 
   void startCooldown() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 2));
 
     setState(() {
       _isCooldown = false;

@@ -8,7 +8,7 @@ class AudioEffectsState {
 
   AudioEffectsState({
     this.isReverb = false,
-    this.speed = 0.5,
+    this.speed = 0.9,
     this.pitch = 0.5,
     this.hasEcho = true,
   });
@@ -26,6 +26,7 @@ class AudioEffectsState {
       hasEcho: hasEcho ?? this.hasEcho,
     );
   }
+
   Map<String, dynamic> toMap() {
     return {
       'isReverb': isReverb,
@@ -34,6 +35,7 @@ class AudioEffectsState {
       'hasEcho': hasEcho,
     };
   }
+
   factory AudioEffectsState.fromMap(Map<String, dynamic> map) {
     return AudioEffectsState(
       isReverb: map['isReverb'],
@@ -43,5 +45,6 @@ class AudioEffectsState {
     );
   }
   String toJson() => json.encode(toMap());
-  factory AudioEffectsState.fromJson(String source) => AudioEffectsState.fromMap(json.decode(source));
+  factory AudioEffectsState.fromJson(String source) =>
+      AudioEffectsState.fromMap(json.decode(source));
 }

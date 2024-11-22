@@ -6,8 +6,17 @@ import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart
 import 'package:reverb/core/injection_container.dart';
 
 class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
-  AudioEffectsCubit() : super(AudioEffectsState());
   final AudioPlayer player = IC.getIt();
+
+  AudioEffectsCubit() : super(AudioEffectsState()) {
+    if (state.isReverb) {
+      player.setPitch(state.pitch);
+      player.setSpeed(state.speed);
+      if (state.hasEcho) {
+        addReverb(player.androidAudioSessionId ?? 0);
+      }
+    }
+  }
 
   static const platform = MethodChannel('audio/effects');
 
@@ -36,11 +45,19 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
   }
 
   void setPitch(double pitch) {
+    if (state.isReverb) {
+      player.setPitch(pitch);
+    }
+
     emit(state.copyWith(pitch: pitch));
   }
 
   void setSpeed(double speed) {
-    emit(state.copyWith(pitch: speed));
+    if (state.isReverb) {
+      player.setSpeed(speed);
+    }
+
+    emit(state.copyWith(speed: speed));
   }
 
   void toggleEcho() {

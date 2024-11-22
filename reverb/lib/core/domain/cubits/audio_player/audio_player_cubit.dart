@@ -15,14 +15,19 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
     await player.setFilePath(song.data);
     player.play();
 
-    emit(Playing(currentSong: song));
+    emit(Playing(currentSong: song, isPlaying: true));
   }
 
   togglePause() {
-    if (player.playing) {
-      player.pause();
-    } else {
-      player.play();
+    if (state is Playing) {
+      final currentState = state as Playing;
+      if (player.playing) {
+        player.pause();
+        emit(currentState.copyWith(isPlaying: false));
+      } else {
+        player.play();
+        emit(currentState.copyWith(isPlaying: true));
+      }
     }
   }
 }
