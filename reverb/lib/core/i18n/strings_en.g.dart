@@ -173,6 +173,7 @@ class TranslationsPlaylistsEn {
 
 	// Translations
 	String playlists({required Object n}) => 'Playlists (${n})';
+	String tracks({required Object n}) => 'Tracks (${n})';
 	String get newPlaylists => 'New playlist';
 	String get manageSongs => 'manage songs';
 	String get rename => 'Rename';
@@ -231,6 +232,7 @@ extension on Translations {
 			case 'artists.noArtists': return 'No artists.';
 			case 'artists.songsAndAlbums': return ({required Object tracks, required Object albums}) => '${tracks} tracks, ${albums} albums';
 			case 'playlists.playlists': return ({required Object n}) => 'Playlists (${n})';
+			case 'playlists.tracks': return ({required Object n}) => 'Tracks (${n})';
 			case 'playlists.newPlaylists': return 'New playlist';
 			case 'playlists.manageSongs': return 'manage songs';
 			case 'playlists.rename': return 'Rename';

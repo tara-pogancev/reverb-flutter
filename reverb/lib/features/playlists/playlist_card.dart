@@ -3,12 +3,12 @@ import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 
-class ArtistCard extends StatelessWidget {
-  const ArtistCard({super.key, required this.artist});
+class PlaylistCard extends StatelessWidget {
+  const PlaylistCard({super.key, required this.playlist});
 
-  final ArtistModel artist;
+  final PlaylistModel playlist;
 
-  void playArtistsMusic() {
+  void playPlaylist() {
     // TODO: Implement playing music functionality
   }
 
@@ -19,22 +19,22 @@ class ArtistCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: ListTile(
         title: Text(
-          artist.artist,
+          playlist.playlist,
           style: AppTextStyles.of(context).primary,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
         subtitle: Text(
-          Translations.of(context).artists.songsAndAlbums(
-              tracks: artist.numberOfTracks ?? 0,
-              albums: artist.numberOfAlbums ?? 0),
+          Translations.of(context).playlists.tracks(
+                n: playlist.numOfSongs,
+              ),
           style: AppTextStyles.of(context).secondary,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
         leading: ClipOval(
           child: QueryArtworkWidget(
-            id: artist.id,
+            id: playlist.id,
             type: ArtworkType.AUDIO,
             artworkWidth: audioArtworkSize,
             artworkHeight: audioArtworkSize,
@@ -47,7 +47,7 @@ class ArtistCard extends StatelessWidget {
             ),
           ),
         ),
-        onTap: () => playArtistsMusic(),
+        onTap: () => playPlaylist(),
       ),
     );
   }

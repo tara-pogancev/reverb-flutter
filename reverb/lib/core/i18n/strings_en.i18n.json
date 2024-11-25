@@ -67,6 +67,7 @@
   },
   "playlists": {
     "playlists": "Playlists ($n)",
+    "tracks": "Tracks ($n)",
     "newPlaylists": "New playlist",
     "manageSongs": "manage songs",
     "rename": "Rename",
