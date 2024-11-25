@@ -43,6 +43,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsSongListEn songList = TranslationsSongListEn._(_root);
 	late final TranslationsPlayerEn player = TranslationsPlayerEn._(_root);
 	late final TranslationsAudioEffectsEn audioEffects = TranslationsAudioEffectsEn._(_root);
+	late final TranslationsSearchEn search = TranslationsSearchEn._(_root);
 }
 
 // Path: general
@@ -137,6 +138,19 @@ class TranslationsAudioEffectsEn {
 	String get speedAndPitch => 'Speed + Pitch';
 }
 
+// Path: search
+class TranslationsSearchEn {
+	TranslationsSearchEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get search => 'Search';
+	String get hint => 'Search your music...';
+	String results({required Object n}) => 'Results (${n})';
+	String get noSongs => 'No songs.';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -180,6 +194,10 @@ extension on Translations {
 			case 'audioEffects.reverb': return 'Reverb';
 			case 'audioEffects.echo': return 'Echo';
 			case 'audioEffects.speedAndPitch': return 'Speed + Pitch';
+			case 'search.search': return 'Search';
+			case 'search.hint': return 'Search your music...';
+			case 'search.results': return ({required Object n}) => 'Results (${n})';
+			case 'search.noSongs': return 'No songs.';
 			default: return null;
 		}
 	}

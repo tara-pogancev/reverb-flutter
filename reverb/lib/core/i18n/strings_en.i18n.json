@@ -53,5 +53,11 @@
     "reverb": "Reverb",
     "echo": "Echo",
     "speedAndPitch": "Speed + Pitch"
+  },
+  "search": {
+    "search": "Search",
+    "hint": "Search your music...",
+    "results": "Results ($n)",
+    "noSongs": "No songs."
   }
 }

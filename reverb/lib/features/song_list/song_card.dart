@@ -36,7 +36,7 @@ class SongCard extends StatelessWidget {
         : Translations.of(context).player.unknownArtist;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: ListTile(
         title: Text(
           song.title + song.title,

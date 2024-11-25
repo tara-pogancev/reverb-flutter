@@ -3,8 +3,8 @@ import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 
-class AppErrorWidget extends StatelessWidget {
-  const AppErrorWidget({super.key, this.message});
+class EmptyWidget extends StatelessWidget {
+  const EmptyWidget({super.key, this.message});
 
   final String? message;
 
@@ -17,7 +17,7 @@ class AppErrorWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
-              Icons.error,
+              Icons.sentiment_dissatisfied_outlined,
               color: AppColorScheme.of(context).darkGray,
               size: 60,
             ),
