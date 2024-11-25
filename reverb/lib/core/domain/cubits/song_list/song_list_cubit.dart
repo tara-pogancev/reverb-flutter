@@ -26,9 +26,10 @@ class SongListCubit extends Cubit<SongListState> {
   void fetchSongs() async {
     try {
       if (await audioQueryRepository.hasPermission()) {
-        List<SongModel> songs =
-            await audioQueryRepository.fetchAudioFromDevice();
-        emit(Loaded(songs: songs));
+        final songs = await audioQueryRepository.fetchAudioFromDevice();
+        final artists = await audioQueryRepository.fetchArtistsFromDevice();
+        final playlists = await audioQueryRepository.fetchPlaylistsFromDevice();
+        emit(Loaded(songs: songs, artists: artists, playlists: playlists));
       } else {
         emit(PermissionRequired());
       }

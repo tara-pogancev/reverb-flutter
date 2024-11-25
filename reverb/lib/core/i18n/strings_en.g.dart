@@ -44,6 +44,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsPlayerEn player = TranslationsPlayerEn._(_root);
 	late final TranslationsAudioEffectsEn audioEffects = TranslationsAudioEffectsEn._(_root);
 	late final TranslationsSearchEn search = TranslationsSearchEn._(_root);
+	late final TranslationsArtistsEn artists = TranslationsArtistsEn._(_root);
+	late final TranslationsPlaylistsEn playlists = TranslationsPlaylistsEn._(_root);
 }
 
 // Path: general
@@ -151,6 +153,33 @@ class TranslationsSearchEn {
 	String get noSongs => 'No songs.';
 }
 
+// Path: artists
+class TranslationsArtistsEn {
+	TranslationsArtistsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String artists({required Object n}) => 'Artist (${n})';
+	String get noArtists => 'No artists.';
+	String songsAndAlbums({required Object tracks, required Object albums}) => '${tracks} tracks, ${albums} albums';
+}
+
+// Path: playlists
+class TranslationsPlaylistsEn {
+	TranslationsPlaylistsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String playlists({required Object n}) => 'Playlists (${n})';
+	String get newPlaylists => 'New playlist';
+	String get manageSongs => 'manage songs';
+	String get rename => 'Rename';
+	String get playlistName => 'Playlist name';
+	String get noPlaylists => 'No playlists.';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -198,6 +227,15 @@ extension on Translations {
 			case 'search.hint': return 'Search your music...';
 			case 'search.results': return ({required Object n}) => 'Results (${n})';
 			case 'search.noSongs': return 'No songs.';
+			case 'artists.artists': return ({required Object n}) => 'Artist (${n})';
+			case 'artists.noArtists': return 'No artists.';
+			case 'artists.songsAndAlbums': return ({required Object tracks, required Object albums}) => '${tracks} tracks, ${albums} albums';
+			case 'playlists.playlists': return ({required Object n}) => 'Playlists (${n})';
+			case 'playlists.newPlaylists': return 'New playlist';
+			case 'playlists.manageSongs': return 'manage songs';
+			case 'playlists.rename': return 'Rename';
+			case 'playlists.playlistName': return 'Playlist name';
+			case 'playlists.noPlaylists': return 'No playlists.';
 			default: return null;
 		}
 	}

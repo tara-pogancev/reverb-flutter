@@ -11,6 +11,12 @@ final class Error extends SongListState {}
 
 final class Loaded extends SongListState {
   final List<SongModel> songs;
+  final List<ArtistModel> artists;
+  final List<PlaylistModel> playlists;
 
-  Loaded({this.songs = const []});
+  Loaded({
+    this.songs = const [],
+    this.artists = const [],
+    this.playlists = const [],
+  });
 }
