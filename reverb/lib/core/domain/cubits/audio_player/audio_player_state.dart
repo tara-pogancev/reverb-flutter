@@ -10,26 +10,26 @@ class Playing extends AudioPlayerState {
   final SongModel currentSong;
   final bool isPlaying;
   final bool isShuffle;
-  final bool isRepeat;
+  final LoopMode loopMode;
 
   Playing({
     required this.currentSong,
     this.isPlaying = false,
     this.isShuffle = false,
-    this.isRepeat = false,
+    this.loopMode = LoopMode.all,
   });
 
   Playing copyWith({
     SongModel? currentSong,
     bool? isPlaying,
     bool? isShuffle,
-    bool? isRepeat,
+    LoopMode? loopMode,
   }) {
     return Playing(
       currentSong: currentSong ?? this.currentSong,
       isPlaying: isPlaying ?? this.isPlaying,
       isShuffle: isShuffle ?? this.isShuffle,
-      isRepeat: isRepeat ?? this.isRepeat,
+      loopMode: loopMode ?? this.loopMode,
     );
   }
 }

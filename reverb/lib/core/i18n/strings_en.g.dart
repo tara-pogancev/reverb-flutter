@@ -123,6 +123,7 @@ class TranslationsPlayerEn {
 	String get allowAccess => 'Allow access';
 	String get allowInSettings => 'If the button doesn\'t prompt you with allowing access, please enable it in the app\'s settings.';
 	String get noSongsAvailable => 'No songs available.';
+	String get nowPlaying => 'Now playing';
 }
 
 // Path: audioEffects
@@ -218,6 +219,7 @@ extension on Translations {
 			case 'player.allowAccess': return 'Allow access';
 			case 'player.allowInSettings': return 'If the button doesn\'t prompt you with allowing access, please enable it in the app\'s settings.';
 			case 'player.noSongsAvailable': return 'No songs available.';
+			case 'player.nowPlaying': return 'Now playing';
 			case 'audioEffects.audioEffects': return 'Audio Effects';
 			case 'audioEffects.on': return 'ON';
 			case 'audioEffects.off': return 'OFF';

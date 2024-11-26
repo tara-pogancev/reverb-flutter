@@ -24,7 +24,11 @@ class IC {
     getIt.registerLazySingleton<AudioQueryRepository>(
         () => AudioQueryRepository(audioQuery: OnAudioQuery()));
 
-    getIt.registerLazySingleton<AudioPlayer>(() => AudioPlayer());
+    getIt.registerLazySingleton<AudioPlayer>(() {
+      final player = AudioPlayer();
+      player.setLoopMode(LoopMode.all);
+      return player;
+    });
 
     // Setup bloc & cubit
 

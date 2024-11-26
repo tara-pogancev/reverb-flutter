@@ -56,7 +56,6 @@ class SongCard extends StatelessWidget {
             type: ArtworkType.AUDIO,
             artworkWidth: audioArtworkSize,
             artworkHeight: audioArtworkSize,
-            quality: 30,
             size: 30,
             artworkBorder: BorderRadius.circular(30),
             nullArtworkWidget: Icon(
