@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
+import 'package:reverb/core/extensions/song_model_extensions.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
+import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_error_widget.dart';
 import 'package:reverb/features/song_player/audio_controls.dart';
 
@@ -52,6 +54,14 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
                     ),
                   ),
                   defaultSpacer,
+                  Text(
+                    state.currentSong.title,
+                    style: AppTextStyles.of(context).primary,
+                  ),
+                  Text(
+                    state.currentSong.getArtist(context),
+                    style: AppTextStyles.of(context).secondary,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(defaultPagePadding),
                     child: AudioControls(),
