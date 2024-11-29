@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/material_themes.dart';
@@ -28,9 +27,11 @@ class ReverbApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final initialThemeMode = (IC.getIt<AudioEffectsCubit>().state.isReverb)
-        ? AdaptiveThemeMode.dark
-        : AdaptiveThemeMode.light;
+    // final initialThemeMode = (IC.getIt<AudioEffectsCubit>().state.isReverb)
+    //     ? AdaptiveThemeMode.dark
+    //     : AdaptiveThemeMode.light;
+
+    final initialThemeMode = AdaptiveThemeMode.dark;
 
     return AdaptiveTheme(
       light: lightMaterialTheme,

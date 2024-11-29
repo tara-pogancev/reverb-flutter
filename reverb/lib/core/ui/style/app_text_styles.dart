@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reverb/core/extensions/context_extensions.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 
 class AppTextStyles {
@@ -18,6 +19,14 @@ class AppTextStyles {
       color: AppColorScheme.of(context).black,
       fontWeight: FontWeight.w600,
       fontFamily: "BrunoAceSC",
+      shadows: [
+        Shadow(
+          color: (context!.getIsDarkTheme())
+              ? AppColorScheme.of(context).black.withOpacity(0.7)
+              : Colors.transparent,
+          blurRadius: 15,
+        ),
+      ],
     );
   }
 

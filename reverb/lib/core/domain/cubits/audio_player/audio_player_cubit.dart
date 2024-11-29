@@ -11,7 +11,27 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
   final AudioPlayer player = IC.getIt();
   final SongListCubit songListCubit = IC.getIt();
 
-  AudioPlayerCubit() : super(Inactive());
+  AudioPlayerCubit() : super(Inactive()) {
+    _setupListeners();
+  }
+
+  void _setupListeners() {
+    // Listen for changes in the current song index
+    player.currentIndexStream.listen((index) {
+      if (index != null && state is Playing) {
+        final song = (state as Playing).playlist[index];
+
+        emit((state as Playing).copyWith(currentSong: song));
+      }
+    });
+
+    // Listen for when playback completes
+    player.processingStateStream.listen((state) {
+      if (state == ProcessingState.completed) {
+        emit(Inactive());
+      }
+    });
+  }
 
   void playSong(SongModel song) async {
     // Create a list of audio sources for all songs
@@ -25,13 +45,14 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
       await player.setAudioSource(queue);
 
       // Find the index of the selected song
-      final songIndex = (songListCubit.state as Loaded).songs.indexOf(song);
+      final playlist = (songListCubit.state as Loaded).songs;
+      final songIndex = playlist.indexOf(song);
 
       if (songIndex != -1) {
         await player.seek(Duration.zero, index: songIndex);
         player.play();
 
-        emit(Playing(currentSong: song, isPlaying: true));
+        emit(Playing(currentSong: song, playlist: playlist, isPlaying: true));
       }
     }
   }
@@ -50,16 +71,16 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
   }
 
   void skipNext() {
-    if (player.hasPrevious) {
-      player.seekToPrevious();
+    if (player.hasNext) {
+      player.seekToNext();
     } else {
       player.stop();
     }
   }
 
   void skipPrevious() {
-    if (player.hasNext) {
-      player.seekToNext();
+    if (player.hasPrevious) {
+      player.seekToPrevious();
     } else {
       player.stop();
     }
