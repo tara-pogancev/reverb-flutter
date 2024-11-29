@@ -16,11 +16,8 @@ class MainActivity: FlutterActivity() {
                 "addReverb" -> {
                     val audioSessionId = call.argument<Int>("audioSessionId") ?: 0
                     val reverb = EnvironmentalReverb(0, audioSessionId)
-                    reverb.setDiffusion((short) 1000);
-                    reverb.setReverbLevel((short) 1000);
                     reverb.setDecayTime(10000);
                     reverb.setReverbDelay(100);
-                    reverb.setDensity((short) 1000);
                     result.success("Reverb applied to session ID ${audioSessionId}")
                 }
                 "removeReverb" -> {
