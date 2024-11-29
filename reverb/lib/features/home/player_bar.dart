@@ -83,11 +83,11 @@ class _PlayerBarState extends State<PlayerBar> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: Icon(Icons.skip_previous),
-                            //   color: AppColorScheme.of(context).white,
-                            // ),
+                            IconButton(
+                              onPressed: () => cubit.skipNext(),
+                              icon: Icon(Icons.skip_next),
+                              color: AppColorScheme.of(context).white,
+                            ),
                             IconButton.filled(
                               style: IconButton.styleFrom(
                                   backgroundColor:
@@ -101,11 +101,6 @@ class _PlayerBarState extends State<PlayerBar> {
                                     : Icons.play_arrow_outlined,
                               ),
                             ),
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: Icon(Icons.skip_next),
-                            //   color: AppColorScheme.of(context).white,
-                            // ),
                           ],
                         ),
                       ],

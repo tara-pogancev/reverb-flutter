@@ -46,6 +46,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsSearchEn search = TranslationsSearchEn._(_root);
 	late final TranslationsArtistsEn artists = TranslationsArtistsEn._(_root);
 	late final TranslationsPlaylistsEn playlists = TranslationsPlaylistsEn._(_root);
+	late final TranslationsSettingsEn settings = TranslationsSettingsEn._(_root);
 }
 
 // Path: general
@@ -182,6 +183,17 @@ class TranslationsPlaylistsEn {
 	String get noPlaylists => 'No playlists.';
 }
 
+// Path: settings
+class TranslationsSettingsEn {
+	TranslationsSettingsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get darkTheme => 'Dark theme';
+	String get adjustAudio => 'Adjust audio effects';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -240,6 +252,8 @@ extension on Translations {
 			case 'playlists.rename': return 'Rename';
 			case 'playlists.playlistName': return 'Playlist name';
 			case 'playlists.noPlaylists': return 'No playlists.';
+			case 'settings.darkTheme': return 'Dark theme';
+			case 'settings.adjustAudio': return 'Adjust audio effects';
 			default: return null;
 		}
 	}

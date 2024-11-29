@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
+import 'package:reverb/core/injection_container.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoBackground extends StatefulWidget {
@@ -11,6 +14,8 @@ class VideoBackground extends StatefulWidget {
 class _VideoBackgroundState extends State<VideoBackground> {
   late VideoPlayerController videoController;
   late Future<void> initializeVideoPlayerFuture;
+
+  final AudioPlayerCubit cubit = IC.getIt();
 
   @override
   void initState() {
@@ -39,7 +44,19 @@ class _VideoBackgroundState extends State<VideoBackground> {
       future: initializeVideoPlayerFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return VideoPlayer(videoController);
+          return BlocListener<AudioPlayerCubit, AudioPlayerState>(
+            bloc: cubit,
+            listener: (context, state) {
+              if (state is Playing) {
+                if (state.isPlaying) {
+                  videoController.play();
+                } else {
+                  videoController.pause();
+                }
+              }
+            },
+            child: VideoPlayer(videoController),
+          );
         } else {
           return Container();
         }

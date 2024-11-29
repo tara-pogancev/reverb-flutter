@@ -46,7 +46,6 @@
     "noSongsAvailable": "No songs available.",
     "nowPlaying": "Now playing"
   },
-
   "audioEffects": {
     "audioEffects": "Audio Effects",
     "on": "ON",
@@ -74,5 +73,10 @@
     "rename": "Rename",
     "playlistName": "Playlist name",
     "noPlaylists": "No playlists."
+  },
+  "settings": {
+    "darkTheme": "Dark theme",
+    "adjustAudio": "Adjust audio effects"
+
   }
 }

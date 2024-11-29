@@ -22,8 +22,9 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
 
   void addReverb(int audioSessionId) async {
     try {
-      await platform
+      final result = await platform
           .invokeMethod('addReverb', {'audioSessionId': audioSessionId});
+      print(result);
       emit(state.copyWith(hasEcho: true));
     } catch (e) {
       if (kDebugMode) {
@@ -34,8 +35,9 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
 
   void removeReverb(int audioSessionId) async {
     try {
-      await platform
+      final result = await platform
           .invokeMethod('removeReverb', {'audioSessionId': audioSessionId});
+      print(result);
       emit(state.copyWith(hasEcho: false));
     } catch (e) {
       if (kDebugMode) {
@@ -78,7 +80,7 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
     }
   }
 
-  void toggleReverb() {
+  void toggleReverb() async {
     if (!state.isReverb) {
       player.setPitch(state.pitch);
       player.setSpeed(state.speed);

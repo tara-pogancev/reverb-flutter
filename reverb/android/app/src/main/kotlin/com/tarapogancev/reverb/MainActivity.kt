@@ -16,22 +16,18 @@ class MainActivity: FlutterActivity() {
                 "addReverb" -> {
                     val audioSessionId = call.argument<Int>("audioSessionId") ?: 0
                     val reverb = EnvironmentalReverb(0, audioSessionId)
-                    reverb.enabled = true
-                    reverb.roomLevel = -1000 // Adjust room level
-                    reverb.decayTime = 1000 // Adjust decay time
-                    result.success("Reverb applied")
+                    reverb.setDiffusion((short) 1000);
+                    reverb.setReverbLevel((short) 1000);
+                    reverb.setDecayTime(10000);
+                    reverb.setReverbDelay(100);
+                    reverb.setDensity((short) 1000);
+                    result.success("Reverb applied to session ID ${audioSessionId}")
                 }
-                else -> result.notImplemented()
-            }
-        }
-
-        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
-            when (call.method) {
                 "removeReverb" -> {
                     val audioSessionId = call.argument<Int>("audioSessionId") ?: 0
                     val reverb = EnvironmentalReverb(0, audioSessionId)
                     reverb.enabled = false
-                    result.success("Reverb removed")
+                    result.success("Reverb removed from session ID ${audioSessionId}")
                 }
                 else -> result.notImplemented()
             }
