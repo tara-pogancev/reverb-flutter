@@ -98,6 +98,7 @@ class TranslationsErrorEn {
 	// Translations
 	String get fetchingSongs => 'Error fetching songs.';
 	String get fetchingPlaylists => 'Error fetching playlists.';
+	String get creatingPlaylist => 'Error creating playlist.';
 }
 
 // Path: songList
@@ -177,11 +178,15 @@ class TranslationsPlaylistsEn {
 	// Translations
 	String playlists({required Object n}) => 'Playlists (${n})';
 	String tracks({required Object n}) => 'Tracks (${n})';
-	String get newPlaylists => 'New playlist';
+	String get newPlaylist => 'New playlist';
 	String get manageSongs => 'manage songs';
-	String get rename => 'Rename';
 	String get playlistName => 'Playlist name';
 	String get noPlaylists => 'No playlists.';
+	String get addToPlaylist => 'Add to playlist';
+	String get removeFromPlaylist => 'Remove from playlist';
+	String get rename => 'Rename playlist';
+	String get deletePlaylist => 'Delete playlist';
+	String get playlistCreated => 'Playlist created';
 }
 
 // Path: settings
@@ -224,6 +229,7 @@ extension on Translations {
 			case 'bottomBar.artists': return 'Artists';
 			case 'error.fetchingSongs': return 'Error fetching songs.';
 			case 'error.fetchingPlaylists': return 'Error fetching playlists.';
+			case 'error.creatingPlaylist': return 'Error creating playlist.';
 			case 'songList.delete': return 'Delete';
 			case 'songList.rename': return 'Rename';
 			case 'songList.addToPlaylist': return 'Add to Playlist';
@@ -249,11 +255,15 @@ extension on Translations {
 			case 'artists.songsAndAlbums': return ({required Object tracks, required Object albums}) => '${tracks} tracks, ${albums} albums';
 			case 'playlists.playlists': return ({required Object n}) => 'Playlists (${n})';
 			case 'playlists.tracks': return ({required Object n}) => 'Tracks (${n})';
-			case 'playlists.newPlaylists': return 'New playlist';
+			case 'playlists.newPlaylist': return 'New playlist';
 			case 'playlists.manageSongs': return 'manage songs';
-			case 'playlists.rename': return 'Rename';
 			case 'playlists.playlistName': return 'Playlist name';
 			case 'playlists.noPlaylists': return 'No playlists.';
+			case 'playlists.addToPlaylist': return 'Add to playlist';
+			case 'playlists.removeFromPlaylist': return 'Remove from playlist';
+			case 'playlists.rename': return 'Rename playlist';
+			case 'playlists.deletePlaylist': return 'Delete playlist';
+			case 'playlists.playlistCreated': return 'Playlist created';
 			case 'settings.darkTheme': return 'Dark theme';
 			case 'settings.adjustAudio': return 'Adjust audio effects';
 			default: return null;

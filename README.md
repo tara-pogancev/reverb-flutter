@@ -6,14 +6,15 @@ Reverb is a local music player that allows you to enable **"slowed + reverb"** o
 ## ✨ Features
 - Playing music from library
 - Changing the pitch and speed of music, for **"reverb"** or **"nightcore"** effect
+- Search songs, sort by artist or playlist
 
 ##### 🛠 Still in the development!
-- Search songs, sort by artist or playlist
-- Multiple languages support
 - Playlist manipulation
-- Platform-native echo effect
 - Theme toggle with reverb
+- Platform-native echo effect
 - Manipulate current playlist queue
+- Multiple languages support
+
 
 ## 🐞 Bugs
 [ ] Theme changing with reverb switch

@@ -44,4 +44,20 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 
     return;
   }
+
+  void createPlaylist(String name) async {
+    final result = await audioQueryRepository.createPlaylist(name);
+    if (!result) {
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) =>
+            Translations.of(context).error.creatingPlaylist,
+      );
+    } else {
+      fetchPlaylists();
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) =>
+            Translations.of(context).playlists.playlistCreated,
+      );
+    }
+  }
 }

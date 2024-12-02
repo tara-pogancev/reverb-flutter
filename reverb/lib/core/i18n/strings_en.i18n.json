@@ -29,7 +29,8 @@
 
   "error": {
     "fetchingSongs": "Error fetching songs.",
-    "fetchingPlaylists": "Error fetching playlists."
+    "fetchingPlaylists": "Error fetching playlists.",
+    "creatingPlaylist": "Error creating playlist."
   },
 
   "songList": {
@@ -47,6 +48,7 @@
     "noSongsAvailable": "No songs available.",
     "nowPlaying": "Now playing"
   },
+
   "audioEffects": {
     "audioEffects": "Audio Effects",
     "on": "ON",
@@ -55,26 +57,34 @@
     "echo": "Echo",
     "speedAndPitch": "Speed + Pitch"
   },
+
   "search": {
     "search": "Search",
     "hint": "Search your music...",
     "results": "Results ($n)",
     "noSongs": "No songs."
   },
+
   "artists": {
     "artists": "Artist ($n)",
     "noArtists": "No artists.",
     "songsAndAlbums": "$tracks tracks, $albums albums"
   },
+
   "playlists": {
     "playlists": "Playlists ($n)",
     "tracks": "Tracks ($n)",
-    "newPlaylists": "New playlist",
+    "newPlaylist": "New playlist",
     "manageSongs": "manage songs",
-    "rename": "Rename",
     "playlistName": "Playlist name",
-    "noPlaylists": "No playlists."
+    "noPlaylists": "No playlists.",
+    "addToPlaylist": "Add to playlist",
+    "removeFromPlaylist": "Remove from playlist",
+    "rename": "Rename playlist",
+    "deletePlaylist": "Delete playlist",
+    "playlistCreated": "Playlist created"
   },
+
   "settings": {
     "darkTheme": "Dark theme",
     "adjustAudio": "Adjust audio effects"
