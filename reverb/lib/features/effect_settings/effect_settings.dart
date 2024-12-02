@@ -5,7 +5,6 @@ import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
-import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 
 class EffectSettings extends StatefulWidget {
@@ -32,8 +31,8 @@ class _EffectSettingsState extends State<EffectSettings> {
                 Text(
                   Translations.of(context).audioEffects.audioEffects,
                   style: AppTextStyles.of(context).title.copyWith(
-                    fontSize: 18,
-                  ),
+                        fontSize: 18,
+                      ),
                   textAlign: TextAlign.center,
                 ),
                 defaultSpacer,

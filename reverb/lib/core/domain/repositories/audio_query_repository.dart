@@ -24,4 +24,13 @@ class AudioQueryRepository {
   Future<List<ArtistModel>> fetchArtistsFromDevice() async {
     return await audioQuery.queryArtists(ignoreCase: true);
   }
+
+  Future<List<SongModel>> getSongsFromPlaylist(int playlistId) async {
+    final List<SongModel> playlistSongs = await audioQuery.queryAudiosFrom(
+      AudiosFromType.PLAYLIST,
+      playlistId,
+    );
+
+    return playlistSongs;
+  }
 }

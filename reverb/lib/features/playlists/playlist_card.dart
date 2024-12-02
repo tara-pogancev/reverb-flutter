@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
+import 'package:reverb/core/domain/repositories/audio_query_repository.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
+import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 
 class PlaylistCard extends StatelessWidget {
@@ -8,8 +12,16 @@ class PlaylistCard extends StatelessWidget {
 
   final PlaylistModel playlist;
 
-  void playPlaylist() {
-    // TODO: Implement playing music functionality
+  void openPlaylistSongList(BuildContext context) async {
+    final AudioQueryRepository audioQueryRepository = IC.getIt();
+
+    List<SongModel> songs =
+        await audioQueryRepository.getSongsFromPlaylist(playlist.id);
+
+    if (context.mounted) {
+      context.push(Routes.songList,
+          extra: {"title": playlist.playlist, "songs": songs});
+    }
   }
 
   @override
@@ -47,7 +59,7 @@ class PlaylistCard extends StatelessWidget {
             ),
           ),
         ),
-        onTap: () => playPlaylist(),
+        onTap: () => openPlaylistSongList(context),
       ),
     );
   }
