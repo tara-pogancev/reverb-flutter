@@ -97,6 +97,7 @@ class TranslationsErrorEn {
 
 	// Translations
 	String get fetchingSongs => 'Error fetching songs.';
+	String get fetchingPlaylists => 'Error fetching playlists.';
 }
 
 // Path: songList
@@ -222,6 +223,7 @@ extension on Translations {
 			case 'bottomBar.playlists': return 'Playlists';
 			case 'bottomBar.artists': return 'Artists';
 			case 'error.fetchingSongs': return 'Error fetching songs.';
+			case 'error.fetchingPlaylists': return 'Error fetching playlists.';
 			case 'songList.delete': return 'Delete';
 			case 'songList.rename': return 'Rename';
 			case 'songList.addToPlaylist': return 'Add to Playlist';

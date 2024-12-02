@@ -1,0 +1,47 @@
+import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
+import 'package:on_audio_query_forked/on_audio_query.dart';
+import 'package:reverb/core/domain/repositories/audio_query_repository.dart';
+import 'package:reverb/core/i18n/strings.g.dart';
+import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/ui/dialog_manager/dialog_manager.dart';
+
+part 'playlist_state.dart';
+
+class PlaylistCubit extends Cubit<PlaylistState> {
+  final AudioQueryRepository audioQueryRepository = IC.getIt();
+
+  PlaylistCubit() : super(Loading()) {
+    fetchPlaylists();
+  }
+
+  void fetchPlaylists() async {
+    try {
+      if (await audioQueryRepository.hasPermission()) {
+        final playlists = await audioQueryRepository.fetchPlaylistsFromDevice();
+        emit(Loaded(playlists: playlists));
+      } else {
+        emit(PermissionRequired());
+      }
+    } on Exception {
+      emit(Error());
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) =>
+            Translations.of(context).error.fetchingPlaylists,
+      );
+    }
+  }
+
+  Future setActivePlaylist(PlaylistModel playlist) async {
+    List<SongModel> songs =
+        await audioQueryRepository.getSongsFromPlaylist(playlist.id);
+
+    if (state is Loaded) {
+      emit((state as Loaded)
+          .copyWith(selectedPlaylistSongs: songs, selectedPlaylist: playlist));
+      return;
+    }
+
+    return;
+  }
+}

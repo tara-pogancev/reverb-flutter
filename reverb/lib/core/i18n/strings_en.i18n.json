@@ -28,7 +28,8 @@
   },
 
   "error": {
-    "fetchingSongs": "Error fetching songs."
+    "fetchingSongs": "Error fetching songs.",
+    "fetchingPlaylists": "Error fetching playlists."
   },
 
   "songList": {
@@ -77,6 +78,5 @@
   "settings": {
     "darkTheme": "Dark theme",
     "adjustAudio": "Adjust audio effects"
-
   }
 }

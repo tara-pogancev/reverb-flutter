@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reverb/core/consts.dart';
-import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
+import 'package:reverb/core/domain/cubits/playlist/playlist_cubit.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/widgets/app_error_widget.dart';
@@ -18,11 +18,11 @@ class PlaylistsScreen extends StatefulWidget {
 }
 
 class _PlaylistsScreenState extends State<PlaylistsScreen> {
-  final SongListCubit cubit = IC.getIt();
+  final PlaylistCubit cubit = IC.getIt();
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SongListCubit, SongListState>(
+    return BlocBuilder<PlaylistCubit, PlaylistState>(
       bloc: cubit,
       builder: (context, state) {
         return Column(
@@ -31,9 +31,8 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
               padding:
                   const EdgeInsets.symmetric(horizontal: defaultPagePadding),
               child: DividerWithTitle(
-                title: Translations.of(context)
-                    .playlists
-                    .playlists(n: (state is Loaded) ? state.playlists.length : 0),
+                title: Translations.of(context).playlists.playlists(
+                    n: (state is Loaded) ? state.playlists.length : 0),
               ),
             ),
             Expanded(

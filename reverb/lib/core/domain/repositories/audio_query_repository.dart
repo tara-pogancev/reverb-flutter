@@ -33,4 +33,24 @@ class AudioQueryRepository {
 
     return playlistSongs;
   }
+
+  Future<bool> createPlaylist(String playlistName) async {
+    return await audioQuery.createPlaylist(playlistName);
+  }
+
+  Future<bool> deletePlaylist(int playlistId) async {
+    return await audioQuery.removePlaylist(playlistId);
+  }
+
+  Future<bool> renamePlaylist(int playlistId, String playlistName) async {
+    return await audioQuery.renamePlaylist(playlistId, playlistName);
+  }
+
+  Future<bool> addToPlaylist(int playlistId, int songId) async {
+    return await audioQuery.addToPlaylist(playlistId, songId);
+  }
+
+  Future<bool> removeFromPlaylist(int playlistId, int songId) async {
+    return await audioQuery.removeFromPlaylist(playlistId, songId);
+  }
 }
