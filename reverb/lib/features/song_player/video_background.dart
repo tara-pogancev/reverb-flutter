@@ -29,7 +29,10 @@ class _VideoBackgroundState extends State<VideoBackground> {
     );
     initializeVideoPlayerFuture = videoController.initialize();
     videoController.setLooping(true);
-    videoController.play();
+
+    if (cubit.state is Playing && (cubit.state as Playing).isPlaying) {
+      videoController.play();
+    }
   }
 
   @override

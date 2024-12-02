@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
+import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
+import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 
 class ArtistCard extends StatelessWidget {
@@ -8,8 +12,19 @@ class ArtistCard extends StatelessWidget {
 
   final ArtistModel artist;
 
-  void playArtistsMusic() {
-    // TODO: Implement playing music functionality
+  void openArtistSongList(BuildContext context) {
+    final SongListCubit songsCubit = IC.getIt();
+
+    List<SongModel> songs = [];
+    if (songsCubit.state is Loaded) {
+      songs = (songsCubit.state as Loaded)
+          .songs
+          .where((s) => s.artistId == artist.id)
+          .toList();
+    }
+
+    context
+        .push(Routes.songList, extra: {"title": artist.artist, "songs": songs});
   }
 
   @override
@@ -47,7 +62,7 @@ class ArtistCard extends StatelessWidget {
             ),
           ),
         ),
-        onTap: () => playArtistsMusic(),
+        onTap: () => openArtistSongList(context),
       ),
     );
   }

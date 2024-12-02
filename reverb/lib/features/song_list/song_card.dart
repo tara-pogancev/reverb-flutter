@@ -8,8 +8,9 @@ import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_popup_menu_item.dart';
 
 class SongCard extends StatelessWidget {
-  const SongCard({super.key, required this.song});
+  const SongCard({super.key, required this.song, this.onTap});
   final SongModel song;
+  final Function()? onTap;
 
   void playSong() async {
     final AudioPlayerCubit cubit = IC.getIt();
@@ -64,7 +65,7 @@ class SongCard extends StatelessWidget {
             ),
           ),
         ),
-        onTap: () => playSong(),
+        onTap: (onTap != null) ? () => onTap!() : () => playSong(),
         trailing: PopupMenuButton(
           icon: Icon(
             Icons.more_horiz,

@@ -57,6 +57,24 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
     }
   }
 
+  void playPlaylist(SongModel song, List<SongModel> playlistSongs) async {
+    final audioSources =
+        playlistSongs.map((s) => AudioSource.uri(Uri.file(s.data))).toList();
+
+    final queue = ConcatenatingAudioSource(children: audioSources);
+    await player.setAudioSource(queue);
+
+    final songIndex = playlistSongs.indexOf(song);
+
+    if (songIndex != -1) {
+      await player.seek(Duration.zero, index: songIndex);
+      player.play();
+
+      emit(
+          Playing(currentSong: song, playlist: playlistSongs, isPlaying: true));
+    }
+  }
+
   togglePause() {
     if (state is Playing) {
       final currentState = state as Playing;
