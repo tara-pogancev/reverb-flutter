@@ -4,8 +4,10 @@ import android.media.audiofx.EnvironmentalReverb
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
+import com.ryanheise.audioservice.AudioServiceActivity;
 
-class MainActivity: FlutterActivity() {
+
+class MainActivity: AudioServiceActivity() {
     private val CHANNEL = "audio/effects"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {

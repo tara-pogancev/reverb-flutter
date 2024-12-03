@@ -1,5 +1,6 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:meta/meta.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
@@ -38,7 +39,15 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
     if (songListCubit.state is Loaded) {
       final audioSources = (songListCubit.state as Loaded)
           .songs
-          .map((s) => AudioSource.uri(Uri.file(s.data)))
+          .map((s) => AudioSource.uri(
+                Uri.file(s.data),
+                tag: MediaItem(
+                  id: s.id.toString(),
+                  title: s.title,
+                  artist: s.artist,
+                  
+                ),
+              ))
           .toList();
 
       final queue = ConcatenatingAudioSource(children: audioSources);
@@ -58,8 +67,18 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
   }
 
   void playPlaylist(SongModel song, List<SongModel> playlistSongs) async {
-    final audioSources =
-        playlistSongs.map((s) => AudioSource.uri(Uri.file(s.data))).toList();
+    final audioSources = playlistSongs
+        .map(
+          (s) => AudioSource.uri(
+            Uri.file(s.data),
+            tag: MediaItem(
+              id: s.id.toString(),
+              title: s.title,
+              artist: s.artist,
+            ),
+          ),
+        )
+        .toList();
 
     final queue = ConcatenatingAudioSource(children: audioSources);
     await player.setAudioSource(queue);

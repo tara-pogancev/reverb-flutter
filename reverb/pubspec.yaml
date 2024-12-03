@@ -27,6 +27,7 @@ dependencies:
   meta: ^1.15.0
   video_player: ^2.9.2
   form_builder_validators: ^11.0.0
+  just_audio_background: ^0.0.1-beta.13
 
 dev_dependencies:
   flutter_test:
