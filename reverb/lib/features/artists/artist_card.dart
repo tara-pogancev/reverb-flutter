@@ -47,22 +47,12 @@ class ArtistCard extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        leading: ClipOval(
-          child: QueryArtworkWidget(
-            id: artist.id,
-            type: ArtworkType.AUDIO,
-            artworkWidth: audioArtworkSize,
-            artworkHeight: audioArtworkSize,
-            quality: 30,
-            size: 30,
-            artworkBorder: BorderRadius.circular(30),
-            nullArtworkWidget: Icon(
-              Icons.image_not_supported_outlined,
-              size: audioArtworkSize,
-            ),
-          ),
+        leading: Icon(
+          Icons.person_outline,
+          size: audioArtworkSize,
         ),
         onTap: () => openArtistSongList(context),
+        
       ),
     );
   }

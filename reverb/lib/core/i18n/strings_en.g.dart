@@ -96,6 +96,7 @@ class TranslationsErrorEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get generic => 'An error occurred';
 	String get fetchingSongs => 'Error fetching songs.';
 	String get fetchingPlaylists => 'Error fetching playlists.';
 	String get creatingPlaylist => 'Error creating playlist.';
@@ -187,7 +188,10 @@ class TranslationsPlaylistsEn {
 	String get addToPlaylist => 'Add to playlist';
 	String get removeFromPlaylist => 'Remove from playlist';
 	String get rename => 'Rename playlist';
+	String get playlistRenamed => 'Playlist renamed';
 	String get deletePlaylist => 'Delete playlist';
+	String areYouSure({required Object name}) => 'Are you sure you want to delete playlist \'${name}\'?';
+	String get playlistDeleted => 'Playlist deleted';
 	String get playlistCreated => 'Playlist created';
 	String get noSongsInPlaylist => 'Empty playlist, add some songs to get started.';
 	String get songAlreadyInPlaylist => 'Song already in playlist';
@@ -231,6 +235,7 @@ extension on Translations {
 			case 'bottomBar.search': return 'Search';
 			case 'bottomBar.playlists': return 'Playlists';
 			case 'bottomBar.artists': return 'Artists';
+			case 'error.generic': return 'An error occurred';
 			case 'error.fetchingSongs': return 'Error fetching songs.';
 			case 'error.fetchingPlaylists': return 'Error fetching playlists.';
 			case 'error.creatingPlaylist': return 'Error creating playlist.';
@@ -268,7 +273,10 @@ extension on Translations {
 			case 'playlists.addToPlaylist': return 'Add to playlist';
 			case 'playlists.removeFromPlaylist': return 'Remove from playlist';
 			case 'playlists.rename': return 'Rename playlist';
+			case 'playlists.playlistRenamed': return 'Playlist renamed';
 			case 'playlists.deletePlaylist': return 'Delete playlist';
+			case 'playlists.areYouSure': return ({required Object name}) => 'Are you sure you want to delete playlist \'${name}\'?';
+			case 'playlists.playlistDeleted': return 'Playlist deleted';
 			case 'playlists.playlistCreated': return 'Playlist created';
 			case 'playlists.noSongsInPlaylist': return 'Empty playlist, add some songs to get started.';
 			case 'playlists.songAlreadyInPlaylist': return 'Song already in playlist';

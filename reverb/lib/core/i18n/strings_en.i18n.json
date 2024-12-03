@@ -28,6 +28,7 @@
   },
 
   "error": {
+    "generic": "An error occurred",
     "fetchingSongs": "Error fetching songs.",
     "fetchingPlaylists": "Error fetching playlists.",
     "creatingPlaylist": "Error creating playlist.",
@@ -83,7 +84,10 @@
     "addToPlaylist": "Add to playlist",
     "removeFromPlaylist": "Remove from playlist",
     "rename": "Rename playlist",
+    "playlistRenamed": "Playlist renamed",
     "deletePlaylist": "Delete playlist",
+    "areYouSure": "Are you sure you want to delete playlist '$name'?",
+    "playlistDeleted": "Playlist deleted",
     "playlistCreated": "Playlist created",
     "noSongsInPlaylist": "Empty playlist, add some songs to get started.",
     "songAlreadyInPlaylist": "Song already in playlist"

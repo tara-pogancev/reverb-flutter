@@ -87,4 +87,34 @@ class PlaylistCubit extends Cubit<PlaylistState> {
       );
     }
   }
+
+  void renamePlaylist(PlaylistModel playlist, String name) async {
+    final result = await audioQueryRepository.renamePlaylist(playlist.id, name);
+    if (!result) {
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) => Translations.of(context).error.generic,
+      );
+    } else {
+      fetchPlaylists();
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) =>
+            Translations.of(context).playlists.playlistRenamed,
+      );
+    }
+  }
+
+  void deletePlaylist(PlaylistModel playlist) async {
+    final result = await audioQueryRepository.deletePlaylist(playlist.id);
+    if (!result) {
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) => Translations.of(context).error.generic,
+      );
+    } else {
+      fetchPlaylists();
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) =>
+            Translations.of(context).playlists.playlistDeleted,
+      );
+    }
+  }
 }
