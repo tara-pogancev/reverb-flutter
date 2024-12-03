@@ -6,6 +6,7 @@ import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
+import 'package:reverb/features/filtered_list_widget/filtered_list_screen.dart';
 
 class ArtistCard extends StatelessWidget {
   const ArtistCard({super.key, required this.artist});
@@ -23,8 +24,11 @@ class ArtistCard extends StatelessWidget {
           .toList();
     }
 
-    context
-        .push(Routes.songList, extra: {"title": artist.artist, "songs": songs});
+    context.push(Routes.songList, extra: {
+      "title": artist.artist,
+      "type": FilteredSongListType.artist,
+      "songs": songs
+    });
   }
 
   @override
@@ -52,7 +56,6 @@ class ArtistCard extends StatelessWidget {
           size: audioArtworkSize,
         ),
         onTap: () => openArtistSongList(context),
-        
       ),
     );
   }

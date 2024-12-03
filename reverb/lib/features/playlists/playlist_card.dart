@@ -10,6 +10,7 @@ import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_popup_menu_item.dart';
+import 'package:reverb/features/filtered_list_widget/filtered_list_screen.dart';
 import 'package:reverb/features/playlists/new_playlist_dialog.dart';
 
 class PlaylistCard extends StatelessWidget {
@@ -24,7 +25,9 @@ class PlaylistCard extends StatelessWidget {
     if (context.mounted) {
       context.push(Routes.songList, extra: {
         "title": playlist.playlist,
-        "songs": (playlistCubit.state as Loaded).selectedPlaylistSongs
+        "type": FilteredSongListType.playlist,
+        "songs": (playlistCubit.state as Loaded).selectedPlaylistSongs,
+        "playlist": playlist,
       });
     }
   }

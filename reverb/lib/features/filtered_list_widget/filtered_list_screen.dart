@@ -6,10 +6,16 @@ import 'package:reverb/features/home/player_bar.dart';
 
 class FilteredListScreen extends StatelessWidget {
   const FilteredListScreen(
-      {super.key, required this.songs, required this.title});
+      {super.key,
+      required this.songs,
+      required this.title,
+      this.type = FilteredSongListType.none,
+      this.playlist});
 
   final List<SongModel> songs;
   final String title;
+  final FilteredSongListType type;
+  final PlaylistModel? playlist;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +26,11 @@ class FilteredListScreen extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: FilteredSongListWidget(songs: songs),
+            child: FilteredSongListWidget(
+              songs: songs,
+              type: type,
+              playlist: playlist,
+            ),
           ),
           PlayerBar(),
         ],
@@ -28,3 +38,5 @@ class FilteredListScreen extends StatelessWidget {
     );
   }
 }
+
+enum FilteredSongListType { none, playlist, artist }

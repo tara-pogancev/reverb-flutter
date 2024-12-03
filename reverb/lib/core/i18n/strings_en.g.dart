@@ -114,6 +114,7 @@ class TranslationsSongListEn {
 	String get rename => 'Rename';
 	String get addToPlaylist => 'Add to Playlist';
 	String get addedToPlaylist => 'Added to Playlist';
+	String get removedFromPlaylist => 'Removed from Playlist';
 }
 
 // Path: player
@@ -244,6 +245,7 @@ extension on Translations {
 			case 'songList.rename': return 'Rename';
 			case 'songList.addToPlaylist': return 'Add to Playlist';
 			case 'songList.addedToPlaylist': return 'Added to Playlist';
+			case 'songList.removedFromPlaylist': return 'Removed from Playlist';
 			case 'player.unknownArtist': return 'Unknown artist';
 			case 'player.permissionRequired': return 'Permission required!';
 			case 'player.pleaseEnableAppAccess': return 'Please enable app\'s access to music.';

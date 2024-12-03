@@ -9,9 +9,12 @@ import 'package:reverb/core/ui/widgets/app_popup_menu_item.dart';
 import 'package:reverb/features/song_list/add_song_to_playlist_sheet.dart';
 
 class SongCard extends StatelessWidget {
-  const SongCard({super.key, required this.song, this.onTap});
+  const SongCard(
+      {super.key, required this.song, this.onTap, this.customTrailingWidget});
+
   final SongModel song;
   final Function()? onTap;
+  final Widget? customTrailingWidget;
 
   void playSong() async {
     final AudioPlayerCubit cubit = IC.getIt();
@@ -64,20 +67,21 @@ class SongCard extends StatelessWidget {
           ),
         ),
         onTap: (onTap != null) ? () => onTap!() : () => playSong(),
-        trailing: PopupMenuButton(
-          icon: Icon(
-            Icons.more_horiz,
-            color: AppColorScheme.of(context).mediumGray,
-          ),
-          itemBuilder: (BuildContext context) => [
-            AppPopupMenuItem.get(
-              context: context,
-              onPressed: () => addToPlaylist(context),
-              icon: Icons.list,
-              text: Translations.of(context).songList.addToPlaylist,
+        trailing: customTrailingWidget ??
+            PopupMenuButton(
+              icon: Icon(
+                Icons.more_horiz,
+                color: AppColorScheme.of(context).mediumGray,
+              ),
+              itemBuilder: (BuildContext context) => [
+                AppPopupMenuItem.get(
+                  context: context,
+                  onPressed: () => addToPlaylist(context),
+                  icon: Icons.list,
+                  text: Translations.of(context).songList.addToPlaylist,
+                ),
+              ],
             ),
-          ],
-        ),
       ),
     );
   }

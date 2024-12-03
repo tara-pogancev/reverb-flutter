@@ -117,4 +117,20 @@ class PlaylistCubit extends Cubit<PlaylistState> {
       );
     }
   }
+
+  void removeFromPlaylist(SongModel song, PlaylistModel playlist) async {
+    final result =
+        await audioQueryRepository.removeFromPlaylist(playlist.id, song.id);
+    if (!result) {
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) => Translations.of(context).error.generic,
+      );
+    } else {
+      fetchPlaylists();
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) =>
+            Translations.of(context).songList.removedFromPlaylist,
+      );
+    }
+  }
 }

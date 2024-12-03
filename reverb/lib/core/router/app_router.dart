@@ -31,7 +31,9 @@ class AppRouter {
             pageBuilder: defaultPageBuilderWithState(
               (state) => FilteredListScreen(
                 title: (state.extra as Map)["title"],
+                type: (state.extra as Map)["type"],
                 songs: (state.extra as Map)["songs"],
+                   playlist: (state.extra as Map)["playlist"],
               ),
             ),
           ),

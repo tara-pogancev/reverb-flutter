@@ -39,7 +39,8 @@
     "delete": "Delete",
     "rename": "Rename",
     "addToPlaylist": "Add to Playlist",
-    "addedToPlaylist": "Added to Playlist"
+    "addedToPlaylist": "Added to Playlist",
+    "removedFromPlaylist": "Removed from Playlist"
   },
 
   "player": {
