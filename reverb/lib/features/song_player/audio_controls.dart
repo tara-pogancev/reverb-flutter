@@ -60,6 +60,7 @@ class _AudioControlsState extends State<AudioControls> {
                   icon: Icon(
                     Icons.skip_previous,
                     size: 35,
+                    color: AppColorScheme.of(context).black,
                   ),
                 ),
                 IconButton.filled(
@@ -85,6 +86,7 @@ class _AudioControlsState extends State<AudioControls> {
                   icon: Icon(
                     Icons.skip_next,
                     size: 35,
+                    color: AppColorScheme.of(context).black,
                   ),
                 ),
                 smallSpacer,

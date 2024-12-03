@@ -32,6 +32,13 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
         emit(Inactive());
       }
     });
+
+    // Listen for play/pause state changes
+    player.playingStream.listen((isPlaying) {
+      if (state is Playing) {
+        emit((state as Playing).copyWith(isPlaying: isPlaying));
+      }
+    });
   }
 
   void playSong(SongModel song) async {
@@ -45,7 +52,6 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
                   id: s.id.toString(),
                   title: s.title,
                   artist: s.artist,
-                  
                 ),
               ))
           .toList();
