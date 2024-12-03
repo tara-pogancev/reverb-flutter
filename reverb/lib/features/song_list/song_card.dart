@@ -6,6 +6,7 @@ import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_popup_menu_item.dart';
+import 'package:reverb/features/song_list/add_song_to_playlist_sheet.dart';
 
 class SongCard extends StatelessWidget {
   const SongCard({super.key, required this.song, this.onTap});
@@ -17,16 +18,13 @@ class SongCard extends StatelessWidget {
     cubit.playSong(song);
   }
 
-  void toggleFavorite() {
-    // TODO: Favorite logic
-  }
-
-  renameSong(BuildContext context) {
-    // TODO: Rename song logic
-  }
-
-  deleteSong(BuildContext context) {
-    // TODO: Delete song logic
+  void addToPlaylist(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => AddSongToPlaylistSheet(
+        song: song,
+      ),
+    );
   }
 
   @override
@@ -74,15 +72,9 @@ class SongCard extends StatelessWidget {
           itemBuilder: (BuildContext context) => [
             AppPopupMenuItem.get(
               context: context,
-              onPressed: () => renameSong(context),
-              icon: Icons.edit,
-              text: Translations.of(context).songList.rename,
-            ),
-            AppPopupMenuItem.get(
-              context: context,
-              onPressed: () => deleteSong(context),
-              icon: Icons.delete_outline,
-              text: Translations.of(context).songList.delete,
+              onPressed: () => addToPlaylist(context),
+              icon: Icons.list,
+              text: Translations.of(context).songList.addToPlaylist,
             ),
           ],
         ),

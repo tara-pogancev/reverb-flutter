@@ -30,13 +30,15 @@
   "error": {
     "fetchingSongs": "Error fetching songs.",
     "fetchingPlaylists": "Error fetching playlists.",
-    "creatingPlaylist": "Error creating playlist."
+    "creatingPlaylist": "Error creating playlist.",
+    "errorAddingSongToPlaylist": "Error adding song to playlist"
   },
 
   "songList": {
     "delete": "Delete",
     "rename": "Rename",
-    "addToPlaylist": "Add to Playlist"
+    "addToPlaylist": "Add to Playlist",
+    "addedToPlaylist": "Added to Playlist"
   },
 
   "player": {
@@ -82,7 +84,9 @@
     "removeFromPlaylist": "Remove from playlist",
     "rename": "Rename playlist",
     "deletePlaylist": "Delete playlist",
-    "playlistCreated": "Playlist created"
+    "playlistCreated": "Playlist created",
+    "noSongsInPlaylist": "Empty playlist, add some songs to get started.",
+    "songAlreadyInPlaylist": "Song already in playlist"
   },
 
   "settings": {

@@ -41,7 +41,7 @@ class FilteredSongListWidget extends StatelessWidget {
                   },
                 )
               : EmptyWidget(
-                  message: Translations.of(context).search.noSongs,
+                  message: Translations.of(context).playlists.noSongsInPlaylist,
                 ),
         ),
       ],

@@ -99,6 +99,7 @@ class TranslationsErrorEn {
 	String get fetchingSongs => 'Error fetching songs.';
 	String get fetchingPlaylists => 'Error fetching playlists.';
 	String get creatingPlaylist => 'Error creating playlist.';
+	String get errorAddingSongToPlaylist => 'Error adding song to playlist';
 }
 
 // Path: songList
@@ -111,6 +112,7 @@ class TranslationsSongListEn {
 	String get delete => 'Delete';
 	String get rename => 'Rename';
 	String get addToPlaylist => 'Add to Playlist';
+	String get addedToPlaylist => 'Added to Playlist';
 }
 
 // Path: player
@@ -187,6 +189,8 @@ class TranslationsPlaylistsEn {
 	String get rename => 'Rename playlist';
 	String get deletePlaylist => 'Delete playlist';
 	String get playlistCreated => 'Playlist created';
+	String get noSongsInPlaylist => 'Empty playlist, add some songs to get started.';
+	String get songAlreadyInPlaylist => 'Song already in playlist';
 }
 
 // Path: settings
@@ -230,9 +234,11 @@ extension on Translations {
 			case 'error.fetchingSongs': return 'Error fetching songs.';
 			case 'error.fetchingPlaylists': return 'Error fetching playlists.';
 			case 'error.creatingPlaylist': return 'Error creating playlist.';
+			case 'error.errorAddingSongToPlaylist': return 'Error adding song to playlist';
 			case 'songList.delete': return 'Delete';
 			case 'songList.rename': return 'Rename';
 			case 'songList.addToPlaylist': return 'Add to Playlist';
+			case 'songList.addedToPlaylist': return 'Added to Playlist';
 			case 'player.unknownArtist': return 'Unknown artist';
 			case 'player.permissionRequired': return 'Permission required!';
 			case 'player.pleaseEnableAppAccess': return 'Please enable app\'s access to music.';
@@ -264,6 +270,8 @@ extension on Translations {
 			case 'playlists.rename': return 'Rename playlist';
 			case 'playlists.deletePlaylist': return 'Delete playlist';
 			case 'playlists.playlistCreated': return 'Playlist created';
+			case 'playlists.noSongsInPlaylist': return 'Empty playlist, add some songs to get started.';
+			case 'playlists.songAlreadyInPlaylist': return 'Song already in playlist';
 			case 'settings.darkTheme': return 'Dark theme';
 			case 'settings.adjustAudio': return 'Adjust audio effects';
 			default: return null;

@@ -53,4 +53,9 @@ class AudioQueryRepository {
   Future<bool> removeFromPlaylist(int playlistId, int songId) async {
     return await audioQuery.removeFromPlaylist(playlistId, songId);
   }
+
+  Future<bool> isSongInPlaylist(int playlistId, SongModel song) async {
+    final songs = await getSongsFromPlaylist(playlistId);
+    return songs.any((song) => song.data == song.data);
+  }
 }

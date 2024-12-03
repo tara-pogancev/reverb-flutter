@@ -60,4 +60,31 @@ class PlaylistCubit extends Cubit<PlaylistState> {
       );
     }
   }
+
+  void addSongToPlaylist(SongModel song, PlaylistModel playlist) async {
+    final isSongInPlaylist =
+        await audioQueryRepository.isSongInPlaylist(playlist.id, song);
+
+    if (!isSongInPlaylist) {
+      final result =
+          await audioQueryRepository.addToPlaylist(playlist.id, song.id);
+      if (!result) {
+        DialogManager.showGlobalSnackbar(
+          snackbarText: (context) =>
+              Translations.of(context).error.errorAddingSongToPlaylist,
+        );
+      } else {
+        fetchPlaylists();
+        DialogManager.showGlobalSnackbar(
+          snackbarText: (context) =>
+              Translations.of(context).playlists.addToPlaylist,
+        );
+      }
+    } else {
+      DialogManager.showGlobalSnackbar(
+        snackbarText: (context) =>
+            Translations.of(context).playlists.songAlreadyInPlaylist,
+      );
+    }
+  }
 }
