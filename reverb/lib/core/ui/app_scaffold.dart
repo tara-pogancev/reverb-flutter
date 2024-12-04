@@ -10,6 +10,7 @@ class AppScaffold extends StatelessWidget {
     this.inclidePadding = false,
     this.drawer,
     this.bottomNavigationBar,
+    this.endDrawer,
   });
 
   final AppBar? appBar;
@@ -17,6 +18,7 @@ class AppScaffold extends StatelessWidget {
   final bool inclidePadding;
   final Widget? drawer;
   final Widget? bottomNavigationBar;
+  final Widget? endDrawer;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class AppScaffold extends StatelessWidget {
       backgroundColor: AppColorScheme.of(context).white,
       appBar: appBar,
       drawer: drawer,
+      endDrawer: endDrawer,
       bottomNavigationBar: bottomNavigationBar,
       body: SafeArea(
         child: Padding(

@@ -12,6 +12,7 @@ import 'package:reverb/core/ui/widgets/glass_container.dart';
 import 'package:reverb/features/home/header_reverb_switch.dart';
 import 'package:reverb/features/song_player/audio_controls.dart';
 import 'package:reverb/features/song_player/audio_waveform.dart';
+import 'package:reverb/features/song_player/current_queue.dart';
 import 'package:reverb/features/song_player/video_background.dart';
 
 class SongPlayerScreen extends StatefulWidget {
@@ -33,6 +34,12 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
           Translations.of(context).player.nowPlaying,
         ),
       ),
+      endDrawer: Drawer(
+          child: SafeArea(
+              child: Padding(
+        padding: const EdgeInsets.all(defaultPagePadding),
+        child: CurrentQueue(),
+      ))),
       child: Stack(
         children: [
           VideoBackground(),

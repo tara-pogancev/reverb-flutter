@@ -10,10 +10,11 @@ class EffectSettingsDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppColorScheme.of(context).lightGray,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-            vertical: largeElementPadding, horizontal: defaultPagePadding),
-        child: EffectSettings(),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(defaultPagePadding),
+          child: EffectSettings(),
+        ),
       ),
     );
   }

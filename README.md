@@ -12,9 +12,9 @@ Reverb is a local music player that allows you to enable **"slowed + reverb"** o
 - Seek audio
 
 ##### 🛠 Still in the development!
+- Manipulate current playlist queue
 - Theme toggle with reverb
 - Platform-native echo effect
-- Manipulate current playlist queue
 - Multiple languages support
 
 
@@ -27,7 +27,7 @@ Reverb is a local music player that allows you to enable **"slowed + reverb"** o
 ## 💻 Development Commands
 Generate translations: `dart run slang`
 
-### For later
-#### Managing iOS permissions 
+##### Managing iOS setup
+ 
 https://pub.dev/packages/just_audio
 https://pub.dev/packages/on_audio_query_forked
