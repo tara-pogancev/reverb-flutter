@@ -6,6 +6,7 @@ import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
 import 'package:reverb/core/extensions/song_model_extensions.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/empty_widget.dart';
 
@@ -36,6 +37,10 @@ class _CurrentQueueState extends State<CurrentQueue> {
     }
   }
 
+  void removeSongFromQueue(SongModel song) {
+    cubit.removeSongFromQueue(song);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -57,12 +62,35 @@ class _CurrentQueueState extends State<CurrentQueue> {
                       },
                       itemBuilder: (BuildContext context, int index) {
                         final song = getQueueSongs(state)[index];
-                        return ListTile(
-                          title: Text(song.title),
-                          subtitle: Text(
-                            song.getArtist(context),
+                        return Dismissible(
+                          key: Key(
+                            song.id.toString(),
                           ),
-                          leading: (index == 0) ? Icon(Icons.play_arrow) : null,
+                          direction: (index == 0)
+                              ? DismissDirection.none
+                              : DismissDirection.endToStart,
+                          background: Container(
+                            color: AppColorScheme.of(context).lightGray,
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.all(defaultPagePadding),
+                                child: Icon(
+                                  Icons.delete_outline,
+                                ),
+                              ),
+                            ),
+                          ),
+                          onDismissed: (direction) => removeSongFromQueue(song),
+                          child: ListTile(
+                            title: Text(song.title),
+                            subtitle: Text(
+                              song.getArtist(context),
+                            ),
+                            leading:
+                                (index == 0) ? Icon(Icons.play_arrow) : null,
+                          ),
                         );
                       },
                     )

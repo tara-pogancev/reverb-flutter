@@ -9,6 +9,7 @@ class Inactive extends AudioPlayerState {}
 class Playing extends AudioPlayerState {
   final SongModel currentSong;
   final List<SongModel> playlist;
+  final ConcatenatingAudioSource? queue;
   final bool isPlaying;
   final bool isShuffle;
   final LoopMode loopMode;
@@ -16,6 +17,7 @@ class Playing extends AudioPlayerState {
   Playing({
     required this.currentSong,
     this.playlist = const [],
+    this.queue,
     this.isPlaying = false,
     this.isShuffle = false,
     this.loopMode = LoopMode.all,
@@ -24,6 +26,7 @@ class Playing extends AudioPlayerState {
   Playing copyWith({
     SongModel? currentSong,
     List<SongModel>? playlist,
+    ConcatenatingAudioSource? queue,
     bool? isPlaying,
     bool? isShuffle,
     LoopMode? loopMode,
@@ -31,6 +34,7 @@ class Playing extends AudioPlayerState {
     return Playing(
       currentSong: currentSong ?? this.currentSong,
       playlist: playlist ?? this.playlist,
+      queue: queue ?? this.queue,
       isPlaying: isPlaying ?? this.isPlaying,
       isShuffle: isShuffle ?? this.isShuffle,
       loopMode: loopMode ?? this.loopMode,

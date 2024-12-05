@@ -67,7 +67,11 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
         await player.seek(Duration.zero, index: songIndex);
         player.play();
 
-        emit(Playing(currentSong: song, playlist: playlist, isPlaying: true));
+        emit(Playing(
+            currentSong: song,
+            playlist: playlist,
+            queue: queue,
+            isPlaying: true));
       }
     }
   }
@@ -95,8 +99,11 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
       await player.seek(Duration.zero, index: songIndex);
       player.play();
 
-      emit(
-          Playing(currentSong: song, playlist: playlistSongs, isPlaying: true));
+      emit(Playing(
+          currentSong: song,
+          playlist: playlistSongs,
+          queue: queue,
+          isPlaying: true));
     }
   }
 
@@ -146,6 +153,21 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
         await player.setLoopMode(LoopMode.off);
       }
       emit((state as Playing).copyWith(loopMode: player.loopMode));
+    }
+  }
+
+  void removeSongFromQueue(SongModel song) {
+    if (state is Playing) {
+      final queue = (state as Playing).queue;
+
+      final index = queue!.sequence
+          .indexWhere((s) => (s.tag as MediaItem).id == song.id.toString());
+      queue.removeAt(index);
+
+      final playlist = (state as Playing).playlist;
+      playlist.remove(song);
+
+      emit((state as Playing).copyWith(queue: queue, playlist: playlist));
     }
   }
 }
