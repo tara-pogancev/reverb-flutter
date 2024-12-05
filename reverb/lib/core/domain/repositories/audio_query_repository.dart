@@ -56,6 +56,6 @@ class AudioQueryRepository {
 
   Future<bool> isSongInPlaylist(int playlistId, SongModel song) async {
     final songs = await getSongsFromPlaylist(playlistId);
-    return songs.any((song) => song.data == song.data);
+    return songs.any((s) => s.data == song.data);
   }
 }
