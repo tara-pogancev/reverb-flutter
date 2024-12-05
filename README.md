@@ -16,6 +16,7 @@ Reverb is a local music player that allows you to enable **"slowed + reverb"** o
 - Theme toggle with reverb
 - Platform-native echo effect
 - Multiple languages support
+- UI haul
 
 
 ## 🐞 Bugs

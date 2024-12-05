@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:reverb/core/consts.dart';
-import 'package:reverb/core/ui/style/app_color_scheme.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
@@ -23,17 +22,29 @@ class AppScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColorScheme.of(context).white,
+      backgroundColor: Colors.transparent,
       appBar: appBar,
+      extendBodyBehindAppBar: true,
       drawer: drawer,
       endDrawer: endDrawer,
       bottomNavigationBar: bottomNavigationBar,
-      body: SafeArea(
-        child: Padding(
-          padding: (!inclidePadding)
-              ? EdgeInsets.zero
-              : EdgeInsets.all(defaultPagePadding),
-          child: child,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                "assets/aurora_bg_dark.jpg",
+              ),
+              fit: BoxFit.cover),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: (!inclidePadding)
+                ? EdgeInsets.zero
+                : EdgeInsets.all(defaultPagePadding),
+            child: child,
+          ),
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
@@ -7,7 +9,16 @@ import 'package:reverb/features/home/header_reverb_switch.dart';
 
 class HomeScreenAppBar {
   static AppBar get(BuildContext context) => AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 90,
+        scrolledUnderElevation: 0,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              color: Colors.transparent,
+            ),
+          ),
+        ),
         leading: Builder(
           builder: (context) => Padding(
             padding: const EdgeInsets.only(
@@ -17,7 +28,7 @@ class HomeScreenAppBar {
                 icon: Icon(Icons.sort)),
           ),
         ),
-        backgroundColor: AppColorScheme.of(context).white,
+        backgroundColor: AppColorScheme.of(context).white.withOpacity(0),
         title: Text(
           Translations.of(context).general.appName,
           style: AppTextStyles.of(context).title,
