@@ -41,6 +41,10 @@ class _CurrentQueueState extends State<CurrentQueue> {
     cubit.removeSongFromQueue(song);
   }
 
+  void playSong(SongModel song) {
+    cubit.playSongFromQueue(song);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -85,6 +89,7 @@ class _CurrentQueueState extends State<CurrentQueue> {
                           onDismissed: (direction) => removeSongFromQueue(song),
                           child: ListTile(
                             title: Text(song.title),
+                            onTap: (index == 0) ? null : () => playSong(song),
                             subtitle: Text(
                               song.getArtist(context),
                             ),

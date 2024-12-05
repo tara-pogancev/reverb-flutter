@@ -170,4 +170,19 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
       emit((state as Playing).copyWith(queue: queue, playlist: playlist));
     }
   }
+
+  void playSongFromQueue(SongModel song) {
+    if (state is Playing) {
+      final queue = (state as Playing).queue;
+
+      final index = queue!.sequence
+          .indexWhere((s) => (s.tag as MediaItem).id == song.id.toString());
+
+      if (index == -1) {
+        return;
+      }
+
+      player.seek(Duration.zero, index: index);
+    }
+  }
 }
