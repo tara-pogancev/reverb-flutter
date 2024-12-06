@@ -8,6 +8,7 @@ import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
+import 'package:reverb/core/ui/widgets/divider_with_title.dart';
 import 'package:reverb/core/ui/widgets/empty_widget.dart';
 
 class CurrentQueue extends StatefulWidget {
@@ -60,43 +61,65 @@ class _CurrentQueueState extends State<CurrentQueue> {
             builder: (context, state) {
               return (state is Playing)
                   ? ListView.separated(
-                      itemCount: getQueueSongs(state).length,
+                      itemCount: getQueueSongs(state).length + 2,
                       separatorBuilder: (BuildContext context, int index) {
                         return smallSpacer;
                       },
                       itemBuilder: (BuildContext context, int index) {
-                        final song = getQueueSongs(state)[index];
-                        return Dismissible(
-                          key: Key(
-                            song.id.toString(),
-                          ),
-                          direction: (index == 0)
-                              ? DismissDirection.none
-                              : DismissDirection.endToStart,
-                          background: Container(
-                            color: AppColorScheme.of(context).lightGray,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.all(defaultPagePadding),
-                                child: Icon(
-                                  Icons.delete_outline,
+                        switch (index) {
+                          case 0:
+                            return DividerWithTitle(
+                                title:
+                                    Translations.of(context).player.nowPlaying);
+                          case 1:
+                            final song = getQueueSongs(state)[index + 1];
+                            return ListTile(
+                              title: Text(
+                                song.title,
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text(
+                                song.getArtist(context),
+                              ),
+                            );
+                          case 2:
+                            return DividerWithTitle(
+                                title: Translations.of(context)
+                                    .player
+                                    .nextInQueue);
+                          default:
+                            final song = getQueueSongs(state)[index + 2];
+                            return Dismissible(
+                              key: Key(
+                                song.id.toString(),
+                              ),
+                              direction: (index == 0)
+                                  ? DismissDirection.none
+                                  : DismissDirection.endToStart,
+                              background: Container(
+                                color: AppColorScheme.of(context).lightGray,
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(
+                                        defaultPagePadding),
+                                    child: Icon(
+                                      Icons.delete_outline,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                          onDismissed: (direction) => removeSongFromQueue(song),
-                          child: ListTile(
-                            title: Text(song.title),
-                            onTap: (index == 0) ? null : () => playSong(song),
-                            subtitle: Text(
-                              song.getArtist(context),
-                            ),
-                            leading:
-                                (index == 0) ? Icon(Icons.play_arrow) : null,
-                          ),
-                        );
+                              onDismissed: (direction) =>
+                                  removeSongFromQueue(song),
+                              child: ListTile(
+                                title: Text(song.title),
+                                onTap: () => playSong(song),
+                                subtitle: Text(
+                                  song.getArtist(context),
+                                ),
+                              ),
+                            );
+                        }
                       },
                     )
                   : EmptyWidget();

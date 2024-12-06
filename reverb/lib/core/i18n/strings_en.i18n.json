@@ -54,6 +54,7 @@
     "allowInSettings": "If the button doesn't prompt you with allowing access, please enable it in the app's settings.",
     "noSongsAvailable": "No songs available.",
     "nowPlaying": "Now playing",
+    "nextInQueue": "Next in queue",
     "playingQueue": "Playing queue",
     "nothingInQueue": "Nothing in queue"
   },

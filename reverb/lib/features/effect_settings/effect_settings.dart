@@ -6,6 +6,7 @@ import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
+import 'package:reverb/features/home/reverb_switch.dart';
 
 class EffectSettings extends StatefulWidget {
   const EffectSettings({super.key});
@@ -50,11 +51,14 @@ class _EffectSettingsState extends State<EffectSettings> {
                 Divider(
                   height: largeElementPadding,
                 ),
-                CheckboxListTile(
-                  title: Text(Translations.of(context).audioEffects.echo),
-                  value: state.hasEcho,
-                  onChanged: (value) => cubit.toggleEcho(),
-                ),
+                // CheckboxListTile(
+                //   title: Text(Translations.of(context).audioEffects.echo),
+                //   value: state.hasEcho,
+                //   onChanged: (value) => cubit.toggleEcho(),
+                // ),
+                ListTile(
+                    title: Text(Translations.of(context).audioEffects.reverb),
+                    trailing: ReverbSwitch()),
                 Divider(
                   height: largeElementPadding,
                 ),

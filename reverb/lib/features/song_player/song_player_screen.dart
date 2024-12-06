@@ -9,7 +9,7 @@ import 'package:reverb/core/ui/app_scaffold.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_error_widget.dart';
 import 'package:reverb/core/ui/widgets/glass_container.dart';
-import 'package:reverb/features/home/header_reverb_switch.dart';
+import 'package:reverb/features/home/reverb_switch.dart';
 import 'package:reverb/features/song_player/audio_controls.dart';
 import 'package:reverb/features/song_player/audio_waveform.dart';
 import 'package:reverb/features/song_player/current_queue.dart';
@@ -54,7 +54,7 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
                     style: AppTextStyles.of(context).title,
                   ),
                   defaultSpacer,
-                  Transform.scale(scale: 1.2, child: HeaderReverbSwitch()),
+                  Transform.scale(scale: 1.2, child: ReverbSwitch()),
                 ],
               ),
             ),

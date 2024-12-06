@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reverb/core/consts.dart';
+import 'package:reverb/core/extensions/context_extensions.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
@@ -34,7 +35,9 @@ class AppScaffold extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                "assets/aurora_bg_dark.jpg",
+                (context.getIsDarkTheme())
+                    ? "assets/aurora_bg_dark.jpg"
+                    : "assets/aurora_bg_light.jpg",
               ),
               fit: BoxFit.cover),
         ),

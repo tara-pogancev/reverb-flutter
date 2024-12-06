@@ -134,6 +134,7 @@ class TranslationsPlayerEn {
 	String get allowInSettings => 'If the button doesn\'t prompt you with allowing access, please enable it in the app\'s settings.';
 	String get noSongsAvailable => 'No songs available.';
 	String get nowPlaying => 'Now playing';
+	String get nextInQueue => 'Next in queue';
 	String get playingQueue => 'Playing queue';
 	String get nothingInQueue => 'Nothing in queue';
 }
@@ -261,6 +262,7 @@ extension on Translations {
 			case 'player.allowInSettings': return 'If the button doesn\'t prompt you with allowing access, please enable it in the app\'s settings.';
 			case 'player.noSongsAvailable': return 'No songs available.';
 			case 'player.nowPlaying': return 'Now playing';
+			case 'player.nextInQueue': return 'Next in queue';
 			case 'player.playingQueue': return 'Playing queue';
 			case 'player.nothingInQueue': return 'Nothing in queue';
 			case 'audioEffects.audioEffects': return 'Audio Effects';
