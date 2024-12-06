@@ -51,7 +51,7 @@ class _AudioControlsState extends State<AudioControls> {
                       LoopMode.one => Icons.repeat_one,
                       LoopMode.all => Icons.repeat_on,
                     },
-                    color: AppColorScheme.of(context).mediumGray,
+                    color: lightAppColorScheme.lightGray,
                   ),
                 ),
                 smallSpacer,
@@ -96,7 +96,7 @@ class _AudioControlsState extends State<AudioControls> {
                     (state.isShuffle)
                         ? Icons.shuffle_on_outlined
                         : Icons.shuffle,
-                    color: AppColorScheme.of(context).mediumGray,
+                    color: lightAppColorScheme.lightGray,
                   ),
                 ),
               ],
