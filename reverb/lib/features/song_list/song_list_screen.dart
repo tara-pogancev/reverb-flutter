@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
+import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
@@ -29,6 +30,7 @@ class _SongListScreenState extends State<SongListScreen> {
         return (widget.songs != null)
             ? (widget.songs!.isNotEmpty)
                 ? ListView.builder(
+                    padding: EdgeInsets.only(bottom: bottomPlayerBarPadding),
                     itemCount: widget.songs!.length,
                     itemBuilder: (BuildContext context, int index) {
                       final song = widget.songs![index];
@@ -44,6 +46,8 @@ class _SongListScreenState extends State<SongListScreen> {
                 PermissionRequired() => PermissionRequiredWidget(),
                 Loaded() => (state.songs.isNotEmpty)
                     ? ListView.builder(
+                        padding:
+                            EdgeInsets.only(bottom: bottomPlayerBarPadding),
                         itemCount: state.songs.length,
                         itemBuilder: (BuildContext context, int index) {
                           final song = state.songs[index];

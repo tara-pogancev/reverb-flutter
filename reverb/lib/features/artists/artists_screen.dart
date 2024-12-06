@@ -43,6 +43,7 @@ class _ArtistsScreenState extends State<ArtistsScreen> {
                 PermissionRequired() => PermissionRequiredWidget(),
                 Loaded() => (state.artists.isNotEmpty)
                     ? ListView.builder(
+                        padding: EdgeInsets.only(bottom: bottomPlayerBarPadding),
                         itemCount: state.artists.length,
                         itemBuilder: (BuildContext context, int index) {
                           final artist = state.artists[index];

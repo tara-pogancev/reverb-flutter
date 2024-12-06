@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
@@ -36,9 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       drawer: EffectSettingsDrawer(),
-      child: Column(
+      child: Stack(
         children: [
-          smallSpacer,
           Expanded(
             child: AnimatedSwitcher(
               duration: Durations.long1,
@@ -54,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           : ArtistsScreen(),
             ),
           ),
-          PlayerBar(),
+          Align(alignment: Alignment.bottomCenter, child: PlayerBar()),
         ],
       ),
     );

@@ -51,6 +51,7 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
                   PermissionRequired() => PermissionRequiredWidget(),
                   Loaded() => (state.playlists.isNotEmpty)
                       ? ListView.builder(
+                          padding: EdgeInsets.only(bottom: bottomPlayerBarPadding),
                           itemCount: state.playlists.length,
                           itemBuilder: (BuildContext context, int index) {
                             final playlist = state.playlists[index];
