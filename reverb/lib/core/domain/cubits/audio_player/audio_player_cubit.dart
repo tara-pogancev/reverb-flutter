@@ -4,7 +4,9 @@ import 'package:just_audio_background/just_audio_background.dart';
 import 'package:meta/meta.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
+import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/ui/dialog_manager/dialog_manager.dart';
 
 part 'audio_player_state.dart';
 
@@ -183,6 +185,32 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
       }
 
       player.seek(Duration.zero, index: index);
+    }
+  }
+
+  void addToQueue(SongModel song) {
+    if (state is Playing) {
+      final playingState = (state as Playing);
+      if (playingState.playlist.contains(song)) {
+        DialogManager.showGlobalSnackbar(
+            snackbarText: (context) =>
+                Translations.of(context).songList.alreadyInQueue);
+      } else {
+        playingState.playlist.add(song);
+        playingState.queue?.add(AudioSource.uri(
+          Uri.file(song.data),
+          tag: MediaItem(
+            id: song.id.toString(),
+            title: song.title,
+            artist: song.artist,
+          ),
+        ));
+
+        emit(playingState);
+        DialogManager.showGlobalSnackbar(
+            snackbarText: (context) =>
+                Translations.of(context).songList.addedToQueue);
+      }
     }
   }
 }

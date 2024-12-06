@@ -115,6 +115,9 @@ class TranslationsSongListEn {
 	String get addToPlaylist => 'Add to Playlist';
 	String get addedToPlaylist => 'Added to Playlist';
 	String get removedFromPlaylist => 'Removed from Playlist';
+	String get addToQueue => 'Add to Queue';
+	String get addedToQueue => 'Added to Queue';
+	String get alreadyInQueue => 'Song already in queue';
 }
 
 // Path: player
@@ -248,6 +251,9 @@ extension on Translations {
 			case 'songList.addToPlaylist': return 'Add to Playlist';
 			case 'songList.addedToPlaylist': return 'Added to Playlist';
 			case 'songList.removedFromPlaylist': return 'Removed from Playlist';
+			case 'songList.addToQueue': return 'Add to Queue';
+			case 'songList.addedToQueue': return 'Added to Queue';
+			case 'songList.alreadyInQueue': return 'Song already in queue';
 			case 'player.unknownArtist': return 'Unknown artist';
 			case 'player.permissionRequired': return 'Permission required!';
 			case 'player.pleaseEnableAppAccess': return 'Please enable app\'s access to music.';

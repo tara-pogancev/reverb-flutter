@@ -40,7 +40,10 @@
     "rename": "Rename",
     "addToPlaylist": "Add to Playlist",
     "addedToPlaylist": "Added to Playlist",
-    "removedFromPlaylist": "Removed from Playlist"
+    "removedFromPlaylist": "Removed from Playlist",
+    "addToQueue": "Add to Queue",
+    "addedToQueue": "Added to Queue",
+    "alreadyInQueue": "Song already in queue"
   },
 
   "player": {

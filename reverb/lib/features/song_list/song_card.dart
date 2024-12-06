@@ -30,6 +30,10 @@ class SongCard extends StatelessWidget {
     );
   }
 
+  addToQueue(BuildContext context) {
+    IC.getIt<AudioPlayerCubit>().addToQueue(song);
+  }
+
   @override
   Widget build(BuildContext context) {
     const double audioArtworkSize = 40;
@@ -79,6 +83,12 @@ class SongCard extends StatelessWidget {
                   onPressed: () => addToPlaylist(context),
                   icon: Icons.list,
                   text: Translations.of(context).songList.addToPlaylist,
+                ),
+                AppPopupMenuItem.get(
+                  context: context,
+                  onPressed: () => addToQueue(context),
+                  icon: Icons.library_add_outlined,
+                  text: Translations.of(context).songList.addToQueue,
                 ),
               ],
             ),
