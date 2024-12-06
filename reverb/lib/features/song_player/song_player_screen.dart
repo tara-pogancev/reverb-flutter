@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reverb/core/consts.dart';
@@ -6,6 +8,7 @@ import 'package:reverb/core/extensions/song_model_extensions.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_error_widget.dart';
 import 'package:reverb/core/ui/widgets/glass_container.dart';
@@ -28,12 +31,7 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          Translations.of(context).player.nowPlaying,
-        ),
-      ),
+      appBar: null,
       endDrawer: Drawer(
           child: SafeArea(
               child: Padding(
@@ -45,18 +43,37 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
           VideoBackground(),
           Align(
             alignment: Alignment.topCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(largeElementPadding),
-              child: Column(
-                children: [
-                  Text(
-                    Translations.of(context).general.appName,
-                    style: AppTextStyles.of(context).title,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AppBar(
+                  toolbarHeight: 80,
+                  foregroundColor: lightAppColorScheme.white,
+                  flexibleSpace: ClipRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                      child: Container(
+                        color: Colors.transparent,
+                      ),
+                    ),
                   ),
-                  defaultSpacer,
-                  Transform.scale(scale: 1.2, child: ReverbSwitch()),
-                ],
-              ),
+                  backgroundColor:
+                      AppColorScheme.of(context).white.withOpacity(0),
+                  centerTitle: true,
+                  title: Text(
+                    Translations.of(context).player.nowPlaying,
+                  ),
+                ),
+                defaultSpacer,
+                Text(
+                  Translations.of(context).general.appName,
+                  style: AppTextStyles.of(context)
+                      .title
+                      .copyWith(color: lightAppColorScheme.white),
+                ),
+                defaultSpacer,
+                Transform.scale(scale: 1.2, child: ReverbSwitch()),
+              ],
             ),
           ),
           BlocBuilder<AudioPlayerCubit, AudioPlayerState>(
