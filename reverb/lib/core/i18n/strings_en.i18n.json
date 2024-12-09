@@ -101,6 +101,7 @@
   },
 
   "settings": {
+    "title": "Settings",
     "darkTheme": "Dark theme",
     "adjustAudio": "Adjust audio effects"
   }

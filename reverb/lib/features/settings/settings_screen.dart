@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -7,7 +8,15 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      child: Text("Settings"),
+      appBar: AppBar(
+        title: Text(Translations.of(context).settings.title),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          
+        ],
+      ),
     );
   }
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/features/home/reverb_switch.dart';
 
@@ -61,6 +63,10 @@ class _EffectSettingsState extends State<EffectSettings> {
                     trailing: ReverbSwitch()),
                 Divider(
                   height: largeElementPadding,
+                ),
+                FilledButton(
+                  onPressed: () => context.push(Routes.settings),
+                  child: Text(Translations.of(context).settings.title),
                 ),
               ],
             ),

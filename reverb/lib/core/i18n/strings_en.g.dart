@@ -211,6 +211,7 @@ class TranslationsSettingsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get title => 'Settings';
 	String get darkTheme => 'Dark theme';
 	String get adjustAudio => 'Adjust audio effects';
 }
@@ -294,6 +295,7 @@ extension on Translations {
 			case 'playlists.playlistCreated': return 'Playlist created';
 			case 'playlists.noSongsInPlaylist': return 'Empty playlist, add some songs to get started.';
 			case 'playlists.songAlreadyInPlaylist': return 'Song already in playlist';
+			case 'settings.title': return 'Settings';
 			case 'settings.darkTheme': return 'Dark theme';
 			case 'settings.adjustAudio': return 'Adjust audio effects';
 			default: return null;
