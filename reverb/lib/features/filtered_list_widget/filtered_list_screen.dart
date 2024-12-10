@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/ui/app_scaffold.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/features/filtered_list_widget/filtered_list_widget.dart';
 import 'package:reverb/features/home/player_bar.dart';
 
@@ -21,6 +22,7 @@ class FilteredListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       appBar: AppBar(
+        backgroundColor: AppColorScheme.of(context).white.withOpacity(0.1),
         title: Text(title),
       ),
       child: Column(

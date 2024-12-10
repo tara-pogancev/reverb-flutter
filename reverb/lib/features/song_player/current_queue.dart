@@ -61,7 +61,8 @@ class _CurrentQueueState extends State<CurrentQueue> {
             builder: (context, state) {
               return (state is Playing)
                   ? ListView.separated(
-                      itemCount: getQueueSongs(state).length + 2,
+                      itemCount: getQueueSongs(state).length +
+                          ((getQueueSongs(state).length == 1) ? 1 : 2),
                       separatorBuilder: (BuildContext context, int index) {
                         return smallSpacer;
                       },

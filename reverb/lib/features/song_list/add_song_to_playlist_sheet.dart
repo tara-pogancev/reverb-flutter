@@ -9,6 +9,7 @@ import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_error_widget.dart';
+import 'package:reverb/core/ui/widgets/empty_widget.dart';
 
 class AddSongToPlaylistSheet extends StatefulWidget {
   const AddSongToPlaylistSheet({
@@ -51,26 +52,35 @@ class _AddSongToPlaylistSheetState extends State<AddSongToPlaylistSheet> {
                   Loaded() => Column(
                       children: [
                         Flexible(
-                          child: ListView.separated(
-                            shrinkWrap: true,
-                            itemCount: state.playlists.length,
-                            separatorBuilder:
-                                (BuildContext context, int index) {
-                              return smallSpacer;
-                            },
-                            itemBuilder: (BuildContext context, int index) {
-                              final playlist = state.playlists[index];
-                              return ListTile(
-                                onTap: () => addToPlaylist(playlist),
-                                title: Text(playlist.playlist),
-                                subtitle: Text(
-                                  Translations.of(context).playlists.tracks(
-                                        n: playlist.numOfSongs,
+                          child: (state.playlists.isEmpty)
+                              ? EmptyWidget(
+                                  message: Translations.of(context)
+                                      .playlists
+                                      .noPlaylists,
+                                )
+                              : ListView.separated(
+                                  shrinkWrap: true,
+                                  itemCount: state.playlists.length,
+                                  separatorBuilder:
+                                      (BuildContext context, int index) {
+                                    return smallSpacer;
+                                  },
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final playlist = state.playlists[index];
+                                    return ListTile(
+                                      onTap: () => addToPlaylist(playlist),
+                                      title: Text(playlist.playlist),
+                                      subtitle: Text(
+                                        Translations.of(context)
+                                            .playlists
+                                            .tracks(
+                                              n: playlist.numOfSongs,
+                                            ),
                                       ),
+                                    );
+                                  },
                                 ),
-                              );
-                            },
-                          ),
                         ),
                       ],
                     ),
