@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class AudioEffectsState {
@@ -5,12 +6,14 @@ class AudioEffectsState {
   final double speed;
   final double pitch;
   final bool hasEcho;
+  final String? language;
 
-  AudioEffectsState({
+  const AudioEffectsState({
     this.isReverb = false,
     this.speed = 0.9,
     this.pitch = 0.5,
     this.hasEcho = true,
+    this.language,
   });
 
   AudioEffectsState copyWith({
@@ -18,12 +21,14 @@ class AudioEffectsState {
     double? speed,
     double? pitch,
     bool? hasEcho,
+    String? language,
   }) {
     return AudioEffectsState(
       isReverb: isReverb ?? this.isReverb,
       speed: speed ?? this.speed,
       pitch: pitch ?? this.pitch,
       hasEcho: hasEcho ?? this.hasEcho,
+      language: language ?? this.language,
     );
   }
 
@@ -33,6 +38,7 @@ class AudioEffectsState {
       'speed': speed,
       'pitch': pitch,
       'hasEcho': hasEcho,
+      'language': language
     };
   }
 
@@ -42,6 +48,7 @@ class AudioEffectsState {
       speed: map['speed'],
       pitch: map['pitch'],
       hasEcho: map['hasEcho'],
+      language: map['language'],
     );
   }
   String toJson() => json.encode(toMap());

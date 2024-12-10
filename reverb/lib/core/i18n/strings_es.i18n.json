@@ -1,0 +1,109 @@
+{
+  "general": {
+    "appName": "Reverb",
+    "cancel": "Cancelar",
+    "ok": "OK",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "comingSoon": "¡Función disponible pronto! 🎉",
+    "viewAll": "Ver todo",
+    "addNew": "Añadir nuevo",
+    "createNew": "Crear nuevo",
+    "upload": "Subir",
+    "close": "Cerrar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "add": "Añadir",
+    "remove": "Eliminar",
+    "preview": "Vista previa",
+    "retry": "Reintentar",
+    "refresh": "Actualizar"
+  },
+
+  "bottomBar": {
+    "music": "Música",
+    "search": "Buscar",
+    "playlists": "Listas de reproducción",
+    "artists": "Artistas"
+  },
+
+  "error": {
+    "generic": "Ocurrió un error",
+    "fetchingSongs": "Error al obtener canciones.",
+    "fetchingPlaylists": "Error al obtener listas de reproducción.",
+    "creatingPlaylist": "Error al crear la lista de reproducción.",
+    "errorAddingSongToPlaylist": "Error al añadir la canción a la lista de reproducción."
+  },
+
+  "songList": {
+    "delete": "Eliminar",
+    "rename": "Renombrar",
+    "addToPlaylist": "Añadir a la lista de reproducción",
+    "addedToPlaylist": "Añadido a la lista de reproducción",
+    "removedFromPlaylist": "Eliminado de la lista de reproducción",
+    "addToQueue": "Añadir a la cola",
+    "addedToQueue": "Añadido a la cola",
+    "alreadyInQueue": "La canción ya está en la cola"
+  },
+
+  "player": {
+    "unknownArtist": "Artista desconocido",
+    "permissionRequired": "¡Permiso requerido!",
+    "pleaseEnableAppAccess": "Por favor, habilita el acceso de la app a la música.",
+    "allowAccess": "Permitir acceso",
+    "allowInSettings": "Si el botón no solicita permitir acceso, habilítalo en la configuración de la app.",
+    "noSongsAvailable": "No hay canciones disponibles.",
+    "nowPlaying": "Reproduciendo ahora",
+    "nextInQueue": "Siguiente en la cola",
+    "playingQueue": "Cola de reproducción",
+    "nothingInQueue": "Nada en la cola"
+  },
+
+  "audioEffects": {
+    "audioEffects": "Efectos de audio",
+    "on": "ENCENDIDO",
+    "off": "APAGADO",
+    "reverb": "Reverberación",
+    "echo": "Eco",
+    "speedAndPitch": "Velocidad + Tono"
+  },
+
+  "search": {
+    "search": "Buscar",
+    "hint": "Busca en tu música...",
+    "results": "Resultados ($n)",
+    "noSongs": "No hay canciones."
+  },
+
+  "artists": {
+    "artists": "Artistas ($n)",
+    "noArtists": "No hay artistas.",
+    "songsAndAlbums": "$tracks canciones, $albums álbumes"
+  },
+
+  "playlists": {
+    "playlists": "Listas de reproducción ($n)",
+    "tracks": "Canciones ($n)",
+    "newPlaylist": "Nueva lista de reproducción",
+    "manageSongs": "Gestionar canciones",
+    "playlistName": "Nombre de la lista de reproducción",
+    "noPlaylists": "No hay listas de reproducción.",
+    "addToPlaylist": "Añadir a la lista de reproducción",
+    "removeFromPlaylist": "Eliminar de la lista de reproducción",
+    "rename": "Renombrar lista de reproducción",
+    "playlistRenamed": "Lista de reproducción renombrada",
+    "deletePlaylist": "Eliminar lista de reproducción",
+    "areYouSure": "¿Estás seguro de que deseas eliminar la lista de reproducción '$name'?",
+    "playlistDeleted": "Lista de reproducción eliminada",
+    "playlistCreated": "Lista de reproducción creada",
+    "noSongsInPlaylist": "Lista de reproducción vacía, añade algunas canciones para comenzar.",
+    "songAlreadyInPlaylist": "La canción ya está en la lista de reproducción"
+  },
+
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "darkTheme": "Tema oscuro",
+    "adjustAudio": "Ajustar efectos de audio"
+  }
+}

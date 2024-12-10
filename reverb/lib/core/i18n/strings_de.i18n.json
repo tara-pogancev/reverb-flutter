@@ -1,0 +1,109 @@
+{
+  "general": {
+    "appName": "Reverb",
+    "cancel": "Abbrechen",
+    "ok": "OK",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "comingSoon": "Funktion kommt bald! 🎉",
+    "viewAll": "Alle anzeigen",
+    "addNew": "Neu hinzufügen",
+    "createNew": "Neu erstellen",
+    "upload": "Hochladen",
+    "close": "Schließen",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "add": "Hinzufügen",
+    "remove": "Entfernen",
+    "preview": "Vorschau",
+    "retry": "Erneut versuchen",
+    "refresh": "Aktualisieren"
+  },
+
+  "bottomBar": {
+    "music": "Musik",
+    "search": "Suche",
+    "playlists": "Wiedergabelisten",
+    "artists": "Künstler"
+  },
+
+  "error": {
+    "generic": "Ein Fehler ist aufgetreten",
+    "fetchingSongs": "Fehler beim Abrufen der Songs.",
+    "fetchingPlaylists": "Fehler beim Abrufen der Wiedergabelisten.",
+    "creatingPlaylist": "Fehler beim Erstellen der Wiedergabeliste.",
+    "errorAddingSongToPlaylist": "Fehler beim Hinzufügen des Songs zur Wiedergabeliste."
+  },
+
+  "songList": {
+    "delete": "Löschen",
+    "rename": "Umbenennen",
+    "addToPlaylist": "Zur Wiedergabeliste hinzufügen",
+    "addedToPlaylist": "Zur Wiedergabeliste hinzugefügt",
+    "removedFromPlaylist": "Aus der Wiedergabeliste entfernt",
+    "addToQueue": "Zur Warteschlange hinzufügen",
+    "addedToQueue": "Zur Warteschlange hinzugefügt",
+    "alreadyInQueue": "Song bereits in der Warteschlange"
+  },
+
+  "player": {
+    "unknownArtist": "Unbekannter Künstler",
+    "permissionRequired": "Berechtigung erforderlich!",
+    "pleaseEnableAppAccess": "Bitte erlauben Sie der App den Zugriff auf Musik.",
+    "allowAccess": "Zugriff erlauben",
+    "allowInSettings": "Falls die Schaltfläche keine Berechtigungsanfrage öffnet, aktivieren Sie den Zugriff bitte in den Einstellungen der App.",
+    "noSongsAvailable": "Keine Songs verfügbar.",
+    "nowPlaying": "Jetzt läuft",
+    "nextInQueue": "Nächster in der Warteschlange",
+    "playingQueue": "Wiedergabewarteschlange",
+    "nothingInQueue": "Nichts in der Warteschlange"
+  },
+
+  "audioEffects": {
+    "audioEffects": "Audioeffekte",
+    "on": "EIN",
+    "off": "AUS",
+    "reverb": "Halleffekt",
+    "echo": "Echo",
+    "speedAndPitch": "Geschwindigkeit + Tonhöhe"
+  },
+
+  "search": {
+    "search": "Suchen",
+    "hint": "Durchsuchen Sie Ihre Musik...",
+    "results": "Ergebnisse ($n)",
+    "noSongs": "Keine Songs."
+  },
+
+  "artists": {
+    "artists": "Künstler ($n)",
+    "noArtists": "Keine Künstler.",
+    "songsAndAlbums": "$tracks Titel, $albums Alben"
+  },
+
+  "playlists": {
+    "playlists": "Wiedergabelisten ($n)",
+    "tracks": "Titel ($n)",
+    "newPlaylist": "Neue Wiedergabeliste",
+    "manageSongs": "Songs verwalten",
+    "playlistName": "Name der Wiedergabeliste",
+    "noPlaylists": "Keine Wiedergabelisten.",
+    "addToPlaylist": "Zur Wiedergabeliste hinzufügen",
+    "removeFromPlaylist": "Aus der Wiedergabeliste entfernen",
+    "rename": "Wiedergabeliste umbenennen",
+    "playlistRenamed": "Wiedergabeliste umbenannt",
+    "deletePlaylist": "Wiedergabeliste löschen",
+    "areYouSure": "Möchten Sie die Wiedergabeliste '$name' wirklich löschen?",
+    "playlistDeleted": "Wiedergabeliste gelöscht",
+    "playlistCreated": "Wiedergabeliste erstellt",
+    "noSongsInPlaylist": "Leere Wiedergabeliste, fügen Sie einige Songs hinzu, um zu starten.",
+    "songAlreadyInPlaylist": "Song bereits in der Wiedergabeliste"
+  },
+
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "darkTheme": "Dunkles Thema",
+    "adjustAudio": "Audioeffekte anpassen"
+  }
+}

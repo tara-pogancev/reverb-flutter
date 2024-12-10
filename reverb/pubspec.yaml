@@ -28,6 +28,9 @@ dependencies:
   video_player: ^2.9.2
   form_builder_validators: ^11.0.0
   just_audio_background: ^0.0.1-beta.13
+  package_info_plus: ^8.1.1
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

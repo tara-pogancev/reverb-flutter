@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_state.dart';
+import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 
 class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
@@ -22,9 +23,8 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
 
   void addReverb(int audioSessionId) async {
     try {
-      final result = await platform
+      await platform
           .invokeMethod('addReverb', {'audioSessionId': audioSessionId});
-      print(result);
       emit(state.copyWith(hasEcho: true));
     } catch (e) {
       if (kDebugMode) {
@@ -45,22 +45,6 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
       }
     }
   }
-
-  // void setPitch(double pitch) {
-  //   if (state.isReverb) {
-  //     player.setPitch(pitch);
-  //   }
-
-  //   emit(state.copyWith(pitch: pitch));
-  // }
-
-  // void setSpeed(double speed) {
-  //   if (state.isReverb) {
-  //     player.setSpeed(speed);
-  //   }
-
-  //   emit(state.copyWith(speed: speed));
-  // }
 
   void setSpeedAndPitch(double value) {
     if (state.isReverb) {
@@ -106,4 +90,37 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
 
   @override
   Map<String, dynamic>? toJson(AudioEffectsState state) => state.toMap();
+
+  void setAppLocale(AppLocale locale) {
+    final localeString = locale.languageCode;
+    emit(state.copyWith(language: localeString));
+  }
+
+  AppLocale? getAppLocale() {
+    switch (state.language) {
+      case null:
+        return null;
+
+      case "en":
+        return AppLocale.en;
+
+      case "sr":
+        return AppLocale.srLatn;
+
+      case "fr":
+        return AppLocale.fr;
+
+      case "es":
+        return AppLocale.es;
+
+      case "de":
+        return AppLocale.de;
+
+      case "hi":
+        return AppLocale.hi;
+
+      default:
+        return AppLocale.en;
+    }
+  }
 }

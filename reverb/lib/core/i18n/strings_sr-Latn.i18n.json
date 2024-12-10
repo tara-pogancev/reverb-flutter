@@ -1,0 +1,109 @@
+{
+  "general": {
+    "appName": "Reverb",
+    "cancel": "Otkaži",
+    "ok": "OK",
+    "confirm": "Potvrdi",
+    "save": "Sačuvaj",
+    "comingSoon": "Funkcija uskoro stiže! 🎉",
+    "viewAll": "Prikaži sve",
+    "addNew": "Dodaj novo",
+    "createNew": "Kreiraj novo",
+    "upload": "Učitaj",
+    "close": "Zatvori",
+    "next": "Sledeće",
+    "previous": "Prethodno",
+    "add": "Dodaj",
+    "remove": "Ukloni",
+    "preview": "Pregled",
+    "retry": "Pokušaj ponovo",
+    "refresh": "Osveži"
+  },
+
+  "bottomBar": {
+    "music": "Muzika",
+    "search": "Pretraga",
+    "playlists": "Plejliste",
+    "artists": "Izvođači"
+  },
+
+  "error": {
+    "generic": "Došlo je do greške",
+    "fetchingSongs": "Greška prilikom učitavanja pesama.",
+    "fetchingPlaylists": "Greška prilikom učitavanja plejlista.",
+    "creatingPlaylist": "Greška prilikom kreiranja plejliste.",
+    "errorAddingSongToPlaylist": "Greška prilikom dodavanja pesme u plejlistu"
+  },
+
+  "songList": {
+    "delete": "Obriši",
+    "rename": "Preimenuj",
+    "addToPlaylist": "Dodaj u plejlistu",
+    "addedToPlaylist": "Dodato u plejlistu",
+    "removedFromPlaylist": "Uklonjeno iz plejliste",
+    "addToQueue": "Dodaj u red čekanja",
+    "addedToQueue": "Dodato u red čekanja",
+    "alreadyInQueue": "Pesma je već u redu čekanja"
+  },
+
+  "player": {
+    "unknownArtist": "Nepoznati izvođač",
+    "permissionRequired": "Potrebna je dozvola!",
+    "pleaseEnableAppAccess": "Molimo omogućite pristup aplikacije muzici.",
+    "allowAccess": "Dozvoli pristup",
+    "allowInSettings": "Ako dugme ne prikazuje opciju za dozvolu, molimo omogućite je u podešavanjima aplikacije.",
+    "noSongsAvailable": "Nema dostupnih pesama.",
+    "nowPlaying": "Trenutno se pušta",
+    "nextInQueue": "Sledeće u redu",
+    "playingQueue": "Red za puštanje",
+    "nothingInQueue": "Ništa u redu čekanja"
+  },
+
+  "audioEffects": {
+    "audioEffects": "Audio efekti",
+    "on": "UKLJUČENO",
+    "off": "ISKLJUČENO",
+    "reverb": "Reverberacija",
+    "echo": "Eho",
+    "speedAndPitch": "Brzina + Visina tona"
+  },
+
+  "search": {
+    "search": "Pretraga",
+    "hint": "Pretražite svoju muziku...",
+    "results": "Rezultati ($n)",
+    "noSongs": "Nema pesama."
+  },
+
+  "artists": {
+    "artists": "Izvođači ($n)",
+    "noArtists": "Nema izvođača.",
+    "songsAndAlbums": "$tracks pesama, $albums albuma"
+  },
+
+  "playlists": {
+    "playlists": "Plejliste ($n)",
+    "tracks": "Numere ($n)",
+    "newPlaylist": "Nova plejlista",
+    "manageSongs": "upravljaj pesmama",
+    "playlistName": "Naziv plejliste",
+    "noPlaylists": "Nema plejlista.",
+    "addToPlaylist": "Dodaj u plejlistu",
+    "removeFromPlaylist": "Ukloni iz plejliste",
+    "rename": "Preimenuj plejlistu",
+    "playlistRenamed": "Plejlista preimenovana",
+    "deletePlaylist": "Obriši plejlistu",
+    "areYouSure": "Da li ste sigurni da želite da obrišete plejlistu '$name'?",
+    "playlistDeleted": "Plejlista obrisana",
+    "playlistCreated": "Plejlista kreirana",
+    "noSongsInPlaylist": "Prazna plejlista, dodajte neke pesme da biste počeli.",
+    "songAlreadyInPlaylist": "Pesma je već u plejlisti"
+  },
+
+  "settings": {
+    "title": "Podešavanja",
+    "language": "Jezik",
+    "darkTheme": "Tamna tema",
+    "adjustAudio": "Podešavanje audio efekata"
+  }
+}

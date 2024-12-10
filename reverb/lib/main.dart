@@ -9,6 +9,8 @@ import 'package:reverb/core/domain/cubits/audio_effects/audio_effects_cubit.dart
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/material_themes.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +28,13 @@ void main() async {
       androidNotificationChannelName: 'Audio playback',
       androidNotificationOngoing: true,
       androidNotificationIcon: 'drawable/note');
+
+  final savedAppLocale = IC.getIt<AudioEffectsCubit>().getAppLocale();
+  if (savedAppLocale == null) {
+    LocaleSettings.useDeviceLocale();
+  } else {
+    LocaleSettings.setLocale(savedAppLocale);
+  }
 
   runApp(TranslationProvider(child: const ReverbApp()));
 }
@@ -51,6 +60,13 @@ class ReverbApp extends StatelessWidget {
         title: Translations.of(context).general.appName,
         theme: theme,
         darkTheme: darkTheme,
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        locale: TranslationProvider.of(context).flutterLocale,
+        supportedLocales: AppLocaleUtils.supportedLocales,
       ),
     );
   }

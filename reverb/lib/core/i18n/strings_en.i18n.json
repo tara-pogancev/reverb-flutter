@@ -102,6 +102,7 @@
 
   "settings": {
     "title": "Settings",
+    "language": "Language",
     "darkTheme": "Dark theme",
     "adjustAudio": "Adjust audio effects"
   }

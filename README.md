@@ -23,6 +23,7 @@ Nothing for now... :)
 
 ## Screenshots
 ![Screenshots](assets/screenshots.jpg)
+![Screenshots](assets/feature_graphic.jpg)
 
 ## 💻 Development Commands
 Generate translations: `dart run slang`

@@ -1,0 +1,109 @@
+{
+  "general": {
+    "appName": "Reverb",
+    "cancel": "Annuler",
+    "ok": "OK",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "comingSoon": "Fonctionnalité à venir bientôt ! 🎉",
+    "viewAll": "Tout voir",
+    "addNew": "Ajouter nouveau",
+    "createNew": "Créer nouveau",
+    "upload": "Télécharger",
+    "close": "Fermer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "add": "Ajouter",
+    "remove": "Retirer",
+    "preview": "Aperçu",
+    "retry": "Réessayer",
+    "refresh": "Rafraîchir"
+  },
+
+  "bottomBar": {
+    "music": "Musique",
+    "search": "Recherche",
+    "playlists": "Playlists",
+    "artists": "Artistes"
+  },
+
+  "error": {
+    "generic": "Une erreur s'est produite",
+    "fetchingSongs": "Erreur lors de la récupération des chansons.",
+    "fetchingPlaylists": "Erreur lors de la récupération des playlists.",
+    "creatingPlaylist": "Erreur lors de la création de la playlist.",
+    "errorAddingSongToPlaylist": "Erreur lors de l'ajout de la chanson à la playlist"
+  },
+
+  "songList": {
+    "delete": "Supprimer",
+    "rename": "Renommer",
+    "addToPlaylist": "Ajouter à la playlist",
+    "addedToPlaylist": "Ajouté à la playlist",
+    "removedFromPlaylist": "Retiré de la playlist",
+    "addToQueue": "Ajouter à la file d'attente",
+    "addedToQueue": "Ajouté à la file d'attente",
+    "alreadyInQueue": "Chanson déjà dans la file d'attente"
+  },
+
+  "player": {
+    "unknownArtist": "Artiste inconnu",
+    "permissionRequired": "Permission requise !",
+    "pleaseEnableAppAccess": "Veuillez autoriser l'accès de l'application à la musique.",
+    "allowAccess": "Autoriser l'accès",
+    "allowInSettings": "Si le bouton ne vous invite pas à autoriser l'accès, veuillez l'activer dans les paramètres de l'application.",
+    "noSongsAvailable": "Aucune chanson disponible.",
+    "nowPlaying": "Lecture en cours",
+    "nextInQueue": "Suivant dans la file d'attente",
+    "playingQueue": "File d'attente de lecture",
+    "nothingInQueue": "Rien dans la file d'attente"
+  },
+
+  "audioEffects": {
+    "audioEffects": "Effets audio",
+    "on": "Activé",
+    "off": "Désactivé",
+    "reverb": "Réverbération",
+    "echo": "Écho",
+    "speedAndPitch": "Vitesse + Pitch"
+  },
+
+  "search": {
+    "search": "Rechercher",
+    "hint": "Rechercher votre musique...",
+    "results": "Résultats ($n)",
+    "noSongs": "Aucune chanson."
+  },
+
+  "artists": {
+    "artists": "Artistes ($n)",
+    "noArtists": "Aucun artiste.",
+    "songsAndAlbums": "$tracks morceaux, $albums albums"
+  },
+
+  "playlists": {
+    "playlists": "Playlists ($n)",
+    "tracks": "Pistes ($n)",
+    "newPlaylist": "Nouvelle playlist",
+    "manageSongs": "gérer les chansons",
+    "playlistName": "Nom de la playlist",
+    "noPlaylists": "Aucune playlist.",
+    "addToPlaylist": "Ajouter à la playlist",
+    "removeFromPlaylist": "Retirer de la playlist",
+    "rename": "Renommer la playlist",
+    "playlistRenamed": "Playlist renommée",
+    "deletePlaylist": "Supprimer la playlist",
+    "areYouSure": "Êtes-vous sûr de vouloir supprimer la playlist '$name' ?",
+    "playlistDeleted": "Playlist supprimée",
+    "playlistCreated": "Playlist créée",
+    "noSongsInPlaylist": "Playlist vide, ajoutez des chansons pour commencer.",
+    "songAlreadyInPlaylist": "Chanson déjà dans la playlist"
+  },
+
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "darkTheme": "Thème sombre",
+    "adjustAudio": "Ajuster les effets audio"
+  }
+}

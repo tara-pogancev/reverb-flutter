@@ -1,3 +1,12 @@
 {
-  "appName": "Reverb"
+  "appName": "Reverb",
+
+  "languages": {
+    "en": "🇬🇧 English",
+    "es": "🇪🇸 Español",
+    "fr": "🇫🇷 Français",
+    "de": "🇩🇪 Deutsch",
+    "sr": "🇷🇸 Srpski",
+    "hi": "🇮🇳 हिंदी"
+  }
 }
