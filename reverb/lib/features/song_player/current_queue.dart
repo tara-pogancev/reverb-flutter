@@ -72,7 +72,7 @@ class _CurrentQueueState extends State<CurrentQueue> {
                                 title:
                                     Translations.of(context).player.nowPlaying);
                           case 1:
-                            final song = getQueueSongs(state)[index + 1];
+                            final song = getQueueSongs(state)[index - 1];
                             return ListTile(
                               title: Text(
                                 song.title,
@@ -88,7 +88,7 @@ class _CurrentQueueState extends State<CurrentQueue> {
                                     .player
                                     .nextInQueue);
                           default:
-                            final song = getQueueSongs(state)[index + 2];
+                            final song = getQueueSongs(state)[index - 2];
                             return Dismissible(
                               key: Key(
                                 song.id.toString(),

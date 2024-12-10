@@ -44,7 +44,9 @@ class _EffectSettingsState extends State<EffectSettings> {
                   max: maxSpeed,
                   divisions: ((maxSpeed - minSpeed) / 0.05).toInt(),
                   value: state.speed,
-                  onChanged: (value) => cubit.setSpeedAndPitch(value),
+                  onChanged: (!state.isReverb)
+                      ? null
+                      : (value) => cubit.setSpeedAndPitch(value),
                 ),
                 Text(
                   "${Translations.of(context).audioEffects.speedAndPitch} (${state.speed}x)",

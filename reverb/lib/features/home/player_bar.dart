@@ -31,7 +31,7 @@ class _PlayerBarState extends State<PlayerBar> {
             return FadeTransition(opacity: animation, child: child);
           },
           child: switch (state) {
-            Inactive() => Container(),
+            Inactive() => Text(""),
             Playing() => SizedBox(
                 width: double.infinity,
                 child: InkWell(
@@ -65,6 +65,8 @@ class _PlayerBarState extends State<PlayerBar> {
                                     .copyWith(
                                         color:
                                             AppColorScheme.of(context).white),
+                                maxLines: 1,
+                                overflow: TextOverflow.fade,
                               ),
                               Text(
                                 state.currentSong.artist ??
@@ -76,6 +78,8 @@ class _PlayerBarState extends State<PlayerBar> {
                                     .copyWith(
                                         color: AppColorScheme.of(context)
                                             .mediumGray),
+                                maxLines: 1,
+                                overflow: TextOverflow.fade,
                               ),
                             ],
                           ),

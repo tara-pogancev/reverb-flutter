@@ -7,16 +7,16 @@ import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 
-class AudioWaveform extends StatefulWidget {
-  const AudioWaveform({super.key, required this.currentSong});
+class AudioSeekSlider extends StatefulWidget {
+  const AudioSeekSlider({super.key, required this.currentSong});
 
   final SongModel currentSong;
 
   @override
-  State<AudioWaveform> createState() => _AudioWaveformState();
+  State<AudioSeekSlider> createState() => _AudioSeekSliderState();
 }
 
-class _AudioWaveformState extends State<AudioWaveform> {
+class _AudioSeekSliderState extends State<AudioSeekSlider> {
   final AudioPlayer player = IC.getIt();
 
   Duration currentPosition = Duration();
@@ -67,7 +67,7 @@ class _AudioWaveformState extends State<AudioWaveform> {
             ),
             child: Slider(
               value: currentPosition.inSeconds.toDouble(),
-              max: player.duration?.inSeconds.toDouble() ?? 1,
+              max: player.duration?.inSeconds.toDouble() ?? 1000,
               onChanged: (value) {
                 player.seek(Duration(seconds: value.toInt()));
               },

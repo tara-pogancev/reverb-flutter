@@ -14,7 +14,7 @@ import 'package:reverb/core/ui/widgets/app_error_widget.dart';
 import 'package:reverb/core/ui/widgets/glass_container.dart';
 import 'package:reverb/features/home/reverb_switch.dart';
 import 'package:reverb/features/song_player/audio_controls.dart';
-import 'package:reverb/features/song_player/audio_waveform.dart';
+import 'package:reverb/features/song_player/audio_seek_slider.dart';
 import 'package:reverb/features/song_player/current_queue.dart';
 import 'package:reverb/features/song_player/video_background.dart';
 
@@ -108,7 +108,7 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
                               textAlign: TextAlign.center,
                             ),
                             defaultSpacer,
-                            AudioWaveform(
+                            AudioSeekSlider(
                               currentSong: state.currentSong,
                             ),
                             defaultSpacer,

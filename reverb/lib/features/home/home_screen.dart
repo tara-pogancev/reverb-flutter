@@ -37,20 +37,18 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: EffectSettingsDrawer(),
       child: Stack(
         children: [
-          Expanded(
-            child: AnimatedSwitcher(
-              duration: Durations.long1,
-              transitionBuilder: (child, animation) {
-                return FadeTransition(opacity: animation, child: child);
-              },
-              child: (visibleScreenIndex == 0)
-                  ? SongListScreen()
-                  : (visibleScreenIndex == 1)
-                      ? SearchScreen()
-                      : (visibleScreenIndex == 2)
-                          ? PlaylistsScreen()
-                          : ArtistsScreen(),
-            ),
+          AnimatedSwitcher(
+            duration: Durations.long1,
+            transitionBuilder: (child, animation) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+            child: (visibleScreenIndex == 0)
+                ? SongListScreen()
+                : (visibleScreenIndex == 1)
+                    ? SearchScreen()
+                    : (visibleScreenIndex == 2)
+                        ? PlaylistsScreen()
+                        : ArtistsScreen(),
           ),
           Align(alignment: Alignment.bottomCenter, child: PlayerBar()),
         ],
