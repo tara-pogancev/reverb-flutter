@@ -12,7 +12,7 @@ import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_error_widget.dart';
 import 'package:reverb/core/ui/widgets/glass_container.dart';
-import 'package:reverb/features/home/reverb_switch.dart';
+import 'package:reverb/features/effect_settings/reverb_switch.dart';
 import 'package:reverb/features/song_player/audio_controls.dart';
 import 'package:reverb/features/song_player/audio_seek_slider.dart';
 import 'package:reverb/features/song_player/current_queue.dart';

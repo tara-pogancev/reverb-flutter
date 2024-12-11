@@ -70,7 +70,7 @@ class _AudioControlsState extends State<AudioControls> {
                   style: IconButton.styleFrom(
                     backgroundColor: AppColorScheme.of(context).black,
                     foregroundColor: lightAppColorScheme.white,
-                    shadowColor: AppColorScheme.of(context).black,
+                    shadowColor: lightAppColorScheme.black,
                     elevation: 10,
                   ),
                   onPressed: () => cubit.togglePause(),

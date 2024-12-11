@@ -8,7 +8,7 @@ import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
-import 'package:reverb/features/home/reverb_switch.dart';
+import 'package:reverb/features/effect_settings/reverb_switch.dart';
 
 class EffectSettings extends StatefulWidget {
   const EffectSettings({super.key});
