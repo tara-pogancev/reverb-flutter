@@ -8,6 +8,7 @@ import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
+import 'package:reverb/core/ui/style/gradients.dart';
 import 'package:reverb/core/ui/widgets/glass_container.dart';
 
 class PlayerBar extends StatefulWidget {
@@ -94,19 +95,7 @@ class _PlayerBarState extends State<PlayerBar> {
                               icon: Icon(Icons.skip_next),
                               color: AppColorScheme.of(context).white,
                             ),
-                            IconButton.filled(
-                              style: IconButton.styleFrom(
-                                  backgroundColor:
-                                      AppColorScheme.of(context).white,
-                                  foregroundColor:
-                                      AppColorScheme.of(context).black),
-                              onPressed: () => cubit.togglePause(),
-                              icon: Icon(
-                                (state.isPlaying)
-                                    ? Icons.pause
-                                    : Icons.play_arrow_outlined,
-                              ),
-                            ),
+                            getPauseButton(context, state),
                           ],
                         ),
                       ],
@@ -117,6 +106,28 @@ class _PlayerBarState extends State<PlayerBar> {
           },
         );
       },
+    );
+  }
+
+  Widget getPauseButton(BuildContext context, Playing state) {
+    return IconButton.filled(
+      padding: const EdgeInsets.all(0.0),
+      style: IconButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          foregroundColor: AppColorScheme.of(context).black),
+      onPressed: () => cubit.togglePause(),
+      icon: Ink(
+        decoration: BoxDecoration(
+          gradient: appGradient,
+          borderRadius: BorderRadius.all(Radius.circular(100)),
+        ),
+        child: SizedBox.square(
+          dimension: 50.0,
+          child: Icon(
+            (state.isPlaying) ? Icons.pause : Icons.play_arrow_outlined,
+          ),
+        ),
+      ),
     );
   }
 }

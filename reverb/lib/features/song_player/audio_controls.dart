@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
+import 'package:reverb/core/extensions/context_extensions.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
+import 'package:reverb/core/ui/style/gradients.dart';
 
 class AudioControls extends StatefulWidget {
   const AudioControls({super.key});
@@ -64,20 +66,27 @@ class _AudioControlsState extends State<AudioControls> {
                   ),
                 ),
                 IconButton.filled(
+                  padding: const EdgeInsets.all(0.0),
                   style: IconButton.styleFrom(
                     backgroundColor: AppColorScheme.of(context).black,
-                    foregroundColor: AppColorScheme.of(context).white,
+                    foregroundColor: lightAppColorScheme.white,
                     shadowColor: AppColorScheme.of(context).black,
                     elevation: 10,
                   ),
                   onPressed: () => cubit.togglePause(),
-                  icon: Padding(
-                    padding: const EdgeInsets.all(smallElementPadding),
-                    child: Icon(
-                      (state.isPlaying)
-                          ? Icons.pause
-                          : Icons.play_arrow_outlined,
-                      size: 35,
+                  icon: Ink(
+                    decoration: BoxDecoration(
+                      gradient: (context.getIsDarkTheme()) ? appGradient : null,
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                    ),
+                    child: SizedBox.square(
+                      dimension: 65.0,
+                      child: Icon(
+                        (state.isPlaying)
+                            ? Icons.pause
+                            : Icons.play_arrow_outlined,
+                        size: 40,
+                      ),
                     ),
                   ),
                 ),

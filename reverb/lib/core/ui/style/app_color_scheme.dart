@@ -45,7 +45,7 @@ AppColorScheme _getActiveScheme(BuildContext context) {
 final lightAppColorScheme = AppColorScheme(
   white: const Color(0xFFfcfdff),
   lightGray: const Color(0xFFf3f4f6),
-  mediumGray: const Color(0xFF9a9ca3),
+  mediumGray: const Color.fromARGB(255, 113, 117, 133),
   darkGray: const Color(0xFF373b46),
   black: const Color(0xFF181c27),
   red: const Color(0xFFfcfdff),
@@ -57,7 +57,7 @@ final lightAppColorScheme = AppColorScheme(
 final darkAppColorScheme = AppColorScheme(
   white: const Color(0xFF181c27),
   lightGray: const Color(0xFF373b46),
-  mediumGray: const Color(0xFF9a9ca3),
+  mediumGray: const Color.fromARGB(255, 102, 108, 128),
   darkGray: const Color(0xFFf3f4f6),
   black: const Color(0xFFfcfdff),
   red: const Color(0xFF621414),
