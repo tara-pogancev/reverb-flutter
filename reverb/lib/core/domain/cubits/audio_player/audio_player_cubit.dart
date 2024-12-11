@@ -59,21 +59,20 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
           .toList();
 
       final queue = ConcatenatingAudioSource(children: audioSources);
-      await player.setAudioSource(queue);
 
       // Find the index of the selected song
       final playlist = (songListCubit.state as Loaded).songs;
       final songIndex = playlist.indexOf(song);
 
       if (songIndex != -1) {
-        await player.seek(Duration.zero, index: songIndex);
-        player.play();
-
         emit(Playing(
             currentSong: song,
             playlist: playlist,
             queue: queue,
             isPlaying: true));
+
+        await player.setAudioSource(queue, initialIndex: songIndex);
+        player.play();
       }
     }
   }
@@ -93,19 +92,17 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
         .toList();
 
     final queue = ConcatenatingAudioSource(children: audioSources);
-    await player.setAudioSource(queue);
-
     final songIndex = playlistSongs.indexOf(song);
 
     if (songIndex != -1) {
-      await player.seek(Duration.zero, index: songIndex);
-      player.play();
-
       emit(Playing(
           currentSong: song,
           playlist: playlistSongs,
           queue: queue,
           isPlaying: true));
+
+      await player.setAudioSource(queue, initialIndex: songIndex);
+      player.play();
     }
   }
 

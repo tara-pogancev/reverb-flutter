@@ -3,7 +3,7 @@ import 'package:reverb/core/ui/style/app_color_scheme.dart';
 
 final darkMaterialTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
-      seedColor: darkAppColorScheme.black,
+      seedColor: darkAppColorScheme.mangeta,
       brightness: Brightness.dark,
     ),
     fontFamily: "Raleway",
@@ -12,7 +12,7 @@ final darkMaterialTheme = ThemeData(
 
 final lightMaterialTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
-      seedColor: lightAppColorScheme.white,
+      seedColor: darkAppColorScheme.darkPurple,
       brightness: Brightness.light,
     ),
     fontFamily: "Raleway",

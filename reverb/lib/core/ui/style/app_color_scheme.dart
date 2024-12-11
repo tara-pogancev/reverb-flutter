@@ -9,6 +9,8 @@ class AppColorScheme {
   final Color black;
   final Color red;
   final Color darkRed;
+  final Color mangeta;
+  final Color darkPurple;
 
   BuildContext? context;
 
@@ -19,16 +21,21 @@ class AppColorScheme {
         mediumGray = _getActiveScheme(context).mediumGray,
         darkGray = _getActiveScheme(context).darkGray,
         red = _getActiveScheme(context).red,
-        darkRed = _getActiveScheme(context).darkRed;
+        darkRed = _getActiveScheme(context).darkRed,
+        mangeta = _getActiveScheme(context).mangeta,
+        darkPurple = _getActiveScheme(context).darkPurple;
 
-  AppColorScheme(
-      {required this.black,
-      required this.white,
-      required this.lightGray,
-      required this.mediumGray,
-      required this.darkGray,
-      required this.darkRed,
-      required this.red});
+  AppColorScheme({
+    required this.black,
+    required this.white,
+    required this.lightGray,
+    required this.mediumGray,
+    required this.darkGray,
+    required this.darkRed,
+    required this.red,
+    required this.mangeta,
+    required this.darkPurple,
+  });
 }
 
 AppColorScheme _getActiveScheme(BuildContext context) {
@@ -43,6 +50,8 @@ final lightAppColorScheme = AppColorScheme(
   black: const Color(0xFF181c27),
   red: const Color(0xFFfcfdff),
   darkRed: const Color(0xFF621414),
+  mangeta: const Color(0xFFe341d7),
+  darkPurple: const Color(0xFF2d2c9f),
 );
 
 final darkAppColorScheme = AppColorScheme(
@@ -53,4 +62,6 @@ final darkAppColorScheme = AppColorScheme(
   black: const Color(0xFFfcfdff),
   red: const Color(0xFF621414),
   darkRed: const Color(0xFFfcfdff),
+  mangeta: const Color(0xFFe341d7),
+  darkPurple: const Color(0xFF2d2c9f),
 );

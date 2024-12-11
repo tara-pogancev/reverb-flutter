@@ -22,9 +22,9 @@ class AppTextStyles {
       shadows: [
         Shadow(
           color: (context!.getIsDarkTheme())
-              ? AppColorScheme.of(context).black.withOpacity(0.7)
+              ? AppColorScheme.of(context).mangeta.withOpacity(1)
               : Colors.transparent,
-          blurRadius: 15,
+          blurRadius: 25,
         ),
       ],
     );
