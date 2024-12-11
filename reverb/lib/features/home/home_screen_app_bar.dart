@@ -25,7 +25,7 @@ class HomeScreenAppBar {
                 left: smallElementPadding, top: 30, bottom: 30),
             child: IconButton(
                 onPressed: () => Scaffold.of(context).openDrawer(),
-                icon: Icon(Icons.sort)),
+                icon: Icon(Icons.tune)),
           ),
         ),
         backgroundColor: AppColorScheme.of(context).white.withOpacity(0),

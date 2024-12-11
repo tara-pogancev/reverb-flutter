@@ -4,6 +4,7 @@ import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/domain/cubits/song_list/song_list_cubit.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/widgets/divider_with_title.dart';
 import 'package:reverb/features/song_list/song_list_screen.dart';
 
@@ -71,12 +72,19 @@ class _SearchScreenState extends State<SearchScreen> {
                 FocusManager.instance.primaryFocus?.unfocus();
               },
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    100,
+                  ),
+                ),
+                fillColor: AppColorScheme.of(context).white.withOpacity(0.5),
+                contentPadding: EdgeInsets.symmetric(horizontal: 25),
                 label: Text(
                   Translations.of(context).search.search,
                 ),
                 hintText: Translations.of(context).search.hint,
-                icon: Icon(Icons.search),
+                suffixIcon: Icon(Icons.search),
               ),
               onChanged: (value) => filterSongs(value)),
         ),

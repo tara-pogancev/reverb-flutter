@@ -5,7 +5,11 @@ import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/consts.dart';
 import 'package:reverb/core/injection_container.dart';
+import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
+import 'package:reverb/core/ui/style/gradients.dart';
+
+import '../../core/ui/widgets/gradient_slider.dart';
 
 class AudioSeekSlider extends StatefulWidget {
   const AudioSeekSlider({super.key, required this.currentSong});
@@ -59,13 +63,12 @@ class _AudioSeekSliderState extends State<AudioSeekSlider> {
       children: [
         Container(
           constraints: BoxConstraints.tightFor(height: 15),
-          child: SliderTheme(
-            data: SliderThemeData(
-              thumbShape: RoundSliderThumbShape(
-                enabledThumbRadius: 6,
-              ),
-            ),
-            child: Slider(
+          child: GradientSlider(
+            activeTrackGradient: reverseAppGradient,
+            inactiveTrackColor: AppColorScheme.of(context).white,
+            trackHeight: 5,
+            slider: Slider(
+              thumbColor: AppColorScheme.of(context).black,
               value: currentPosition.inSeconds.toDouble(),
               max: player.duration?.inSeconds.toDouble() ?? 1000,
               onChanged: (value) {

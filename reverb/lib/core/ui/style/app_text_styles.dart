@@ -24,7 +24,7 @@ class AppTextStyles {
           color: (context!.getIsDarkTheme())
               ? AppColorScheme.of(context).mangeta.withOpacity(1)
               : Colors.transparent,
-          blurRadius: 25,
+          blurRadius: 45,
         ),
       ],
     );
