@@ -42,7 +42,7 @@ class _SongListScreenState extends State<SongListScreen> {
                   )
             : switch (state) {
                 Error() => AppErrorWidget(),
-                Loading() => CircularProgressIndicator(),
+                Loading() => Center(child: CircularProgressIndicator()),
                 PermissionRequired() => PermissionRequiredWidget(),
                 Loaded() => (state.songs.isNotEmpty)
                     ? ListView.builder(

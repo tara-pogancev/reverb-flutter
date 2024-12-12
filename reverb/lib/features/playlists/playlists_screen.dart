@@ -49,7 +49,7 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
                 Expanded(
                   child: switch (state) {
                     Error() => AppErrorWidget(),
-                    Loading() => CircularProgressIndicator(),
+                    Loading() => Center(child: CircularProgressIndicator()),
                     PermissionRequired() => PermissionRequiredWidget(),
                     Loaded() => (state.playlists.isNotEmpty)
                         ? ListView.builder(

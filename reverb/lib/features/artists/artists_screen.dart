@@ -39,11 +39,12 @@ class _ArtistsScreenState extends State<ArtistsScreen> {
             Expanded(
               child: switch (state) {
                 Error() => AppErrorWidget(),
-                Loading() => CircularProgressIndicator(),
+                Loading() => Center(child: CircularProgressIndicator()),
                 PermissionRequired() => PermissionRequiredWidget(),
                 Loaded() => (state.artists.isNotEmpty)
                     ? ListView.builder(
-                        padding: EdgeInsets.only(bottom: bottomPlayerBarPadding),
+                        padding:
+                            EdgeInsets.only(bottom: bottomPlayerBarPadding),
                         itemCount: state.artists.length,
                         itemBuilder: (BuildContext context, int index) {
                           final artist = state.artists[index];
