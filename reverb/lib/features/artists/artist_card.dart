@@ -6,6 +6,7 @@ import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
+import 'package:reverb/core/ui/widgets/glowing_circle_container.dart';
 import 'package:reverb/features/filtered_list_widget/filtered_list_screen.dart';
 
 class ArtistCard extends StatelessWidget {
@@ -51,9 +52,13 @@ class ArtistCard extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        leading: Icon(
-          Icons.person_outline,
-          size: audioArtworkSize,
+        leading: GlowingCircleContainer(
+          color: Colors.blue,
+          child: Image.asset(
+            "assets/artist.png",
+            width: audioArtworkSize,
+            height: audioArtworkSize,
+          ),
         ),
         onTap: () => openArtistSongList(context),
       ),

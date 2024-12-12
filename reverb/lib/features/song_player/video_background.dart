@@ -22,7 +22,7 @@ class _VideoBackgroundState extends State<VideoBackground> {
     super.initState();
 
     videoController = VideoPlayerController.asset(
-      "assets/wave_1.mp4",
+      "assets/wave_3.mp4",
       videoPlayerOptions: VideoPlayerOptions(
         mixWithOthers: true,
       ),
@@ -58,7 +58,16 @@ class _VideoBackgroundState extends State<VideoBackground> {
                 }
               }
             },
-            child: VideoPlayer(videoController),
+            child: SizedBox.expand(
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: SizedBox(
+                  width: videoController.value.size.width,
+                  height: videoController.value.size.height,
+                  child: VideoPlayer(videoController),
+                ),
+              ),
+            ),
           );
         } else {
           return Container();

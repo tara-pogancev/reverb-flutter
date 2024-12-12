@@ -28,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     setState(() {
       packageInfoString =
-          "${Translations.of(context).general.appName}${packageInfo.version}+${packageInfo.buildNumber}";
+          "${Translations.of(context).general.appName} ${packageInfo.version}";
     });
   }
 

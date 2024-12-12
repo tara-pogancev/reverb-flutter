@@ -10,6 +10,7 @@ import 'package:reverb/core/router/app_router.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_popup_menu_item.dart';
+import 'package:reverb/core/ui/widgets/glowing_circle_container.dart';
 import 'package:reverb/features/filtered_list_widget/filtered_list_screen.dart';
 import 'package:reverb/features/playlists/new_playlist_dialog.dart';
 
@@ -91,9 +92,12 @@ class PlaylistCard extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        leading: Icon(
-          Icons.queue_music_outlined,
-          size: audioArtworkSize,
+        leading: GlowingCircleContainer(
+          child: Image.asset(
+            "assets/playlist.png",
+            width: audioArtworkSize,
+            height: audioArtworkSize,
+          ),
         ),
         onTap: () => openPlaylistSongList(context),
         trailing: (Platform.isAndroid)

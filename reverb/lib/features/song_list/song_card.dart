@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:reverb/core/domain/cubits/audio_player/audio_player_cubit.dart';
-import 'package:reverb/core/extensions/context_extensions.dart';
 import 'package:reverb/core/i18n/strings.g.dart';
 import 'package:reverb/core/injection_container.dart';
 import 'package:reverb/core/ui/style/app_color_scheme.dart';
 import 'package:reverb/core/ui/style/app_text_styles.dart';
 import 'package:reverb/core/ui/widgets/app_popup_menu_item.dart';
+import 'package:reverb/core/ui/widgets/glowing_circle_container.dart';
 import 'package:reverb/features/song_list/add_song_to_playlist_sheet.dart';
 
 class SongCard extends StatefulWidget {
@@ -93,18 +93,7 @@ class _SongCardState extends State<SongCard> {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            leading: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(100)),
-                boxShadow: [
-                  BoxShadow(
-                    color: (context.getIsDarkTheme())
-                        ? AppColorScheme.of(context).mangeta.withOpacity(0.5)
-                        : Colors.transparent,
-                    blurRadius: 7, // changes position of shadow
-                  ),
-                ],
-              ),
+            leading: GlowingCircleContainer(
               child: QueryArtworkWidget(
                 id: widget.song.id,
                 type: ArtworkType.AUDIO,
@@ -112,9 +101,10 @@ class _SongCardState extends State<SongCard> {
                 artworkHeight: audioArtworkSize,
                 size: 50,
                 artworkBorder: BorderRadius.circular(30),
-                nullArtworkWidget: Icon(
-                  Icons.image_not_supported_outlined,
-                  size: audioArtworkSize,
+                nullArtworkWidget: Image.asset(
+                  "assets/track.png",
+                  width: audioArtworkSize,
+                  height: audioArtworkSize,
                 ),
               ),
             ),

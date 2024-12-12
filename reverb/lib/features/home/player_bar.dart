@@ -78,7 +78,7 @@ class _PlayerBarState extends State<PlayerBar> {
                                     .secondary
                                     .copyWith(
                                         color: AppColorScheme.of(context)
-                                            .mediumGray),
+                                            .lightGray),
                                 maxLines: 1,
                                 overflow: TextOverflow.fade,
                               ),
@@ -114,7 +114,7 @@ class _PlayerBarState extends State<PlayerBar> {
       padding: const EdgeInsets.all(0.0),
       style: IconButton.styleFrom(
           backgroundColor: Colors.transparent,
-          foregroundColor: AppColorScheme.of(context).black),
+          foregroundColor: lightAppColorScheme.white),
       onPressed: () => cubit.togglePause(),
       icon: Ink(
         decoration: BoxDecoration(
