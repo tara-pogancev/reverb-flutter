@@ -11,6 +11,7 @@ class AppScaffold extends StatelessWidget {
     this.drawer,
     this.bottomNavigationBar,
     this.endDrawer,
+    this.ignoreSafeArea = false,
   });
 
   final AppBar? appBar;
@@ -19,6 +20,7 @@ class AppScaffold extends StatelessWidget {
   final Widget? drawer;
   final Widget? bottomNavigationBar;
   final Widget? endDrawer;
+  final bool ignoreSafeArea;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,8 @@ class AppScaffold extends StatelessWidget {
               fit: BoxFit.cover),
         ),
         child: SafeArea(
+          top: !ignoreSafeArea,
+          bottom: !ignoreSafeArea,
           child: Padding(
             padding: (!inclidePadding)
                 ? EdgeInsets.zero

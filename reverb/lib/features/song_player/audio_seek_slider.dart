@@ -83,12 +83,16 @@ class _AudioSeekSliderState extends State<AudioSeekSlider> {
             defaultSpacer,
             Text(
               formatDuration(currentPosition),
-              style: AppTextStyles.of(context).secondary,
+              style: AppTextStyles.of(context)
+                  .secondary
+                  .copyWith(color: lightAppColorScheme.white),
             ),
             Spacer(),
             Text(
               formatDuration(player.duration ?? Duration()),
-              style: AppTextStyles.of(context).secondary,
+              style: AppTextStyles.of(context)
+                  .secondary
+                  .copyWith(color: lightAppColorScheme.white),
             ),
             defaultSpacer,
           ],

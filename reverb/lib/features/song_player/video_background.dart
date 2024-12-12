@@ -22,7 +22,7 @@ class _VideoBackgroundState extends State<VideoBackground> {
     super.initState();
 
     videoController = VideoPlayerController.asset(
-      "assets/wave_3.mp4",
+      "assets/wave_2.mp4",
       videoPlayerOptions: VideoPlayerOptions(
         mixWithOthers: true,
       ),

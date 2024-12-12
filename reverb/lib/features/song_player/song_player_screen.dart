@@ -31,7 +31,7 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBar: null,
+      ignoreSafeArea: true,
       endDrawer: Drawer(
           child: SafeArea(
               child: Padding(
@@ -104,7 +104,9 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
                             ),
                             Text(
                               state.currentSong.getArtist(context),
-                              style: AppTextStyles.of(context).secondary,
+                              style: AppTextStyles.of(context)
+                                  .secondary
+                                  .copyWith(color: lightAppColorScheme.white),
                               textAlign: TextAlign.center,
                             ),
                             defaultSpacer,
