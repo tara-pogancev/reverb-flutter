@@ -5,6 +5,12 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 android {
     namespace = "com.tarapogancev.reverb"
     compileSdk = flutter.compileSdkVersion
@@ -27,12 +33,21 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+       release {
+            keyAlias keystoreProperties['RELEASE_KEY_ALIAS']
+            keyPassword keystoreProperties['RELEASE_KEY_PASSWORD']
+            storeFile keystoreProperties['RELEASE_STORE_FILE'] ? file(keystoreProperties['RELEASE_STORE_FILE']) : null
+            storePassword keystoreProperties['RELEASE_STORE_PASSWORD']
+       }
+   }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
-        }
+            if (keystoreProperties['RELEASE_KEY_ALIAS'] != null) {
+                 signingConfig signingConfigs.release
+            }
+       }
     }
 }
 
