@@ -10,8 +10,8 @@ class AudioEffectsState {
 
   const AudioEffectsState({
     this.isReverb = false,
-    this.speed = 0.9,
-    this.pitch = 0.5,
+    this.speed = 0.85,
+    this.pitch = 0.85,
     this.hasEcho = true,
     this.language,
   });

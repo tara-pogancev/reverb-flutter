@@ -1,9 +1,9 @@
 name: reverb
 description: "Your music. Slowed down."
 
-publish_to: 'none' 
+publish_to: "none"
 
-version: 1.0.0+2
+version: 1.0.1+3
 
 environment:
   sdk: ^3.5.4
@@ -67,5 +67,3 @@ flutter:
           weight: 900
         - asset: fonts/raleway-static/Raleway-MediumItalic.ttf
           style: italic
-
-
