@@ -19,6 +19,11 @@ Reverb is a local music player that allows you to enable **"slowed + reverb"** o
 
 ##### 🛠 Future development plans
 - Platform-native echo effect
+- Shuffle playlist button on playlist page
+- Sorting on home page
+- Ability to select files from home page (to play, delete, add to playlist)
+- Add songs to discluded list, never to be played again
+- Add folder as an option
 
 ## 🐞 Bugs
 Nothing for now... :) 

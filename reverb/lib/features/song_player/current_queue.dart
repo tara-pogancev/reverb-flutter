@@ -98,7 +98,7 @@ class _CurrentQueueState extends State<CurrentQueue> {
                                   ? DismissDirection.none
                                   : DismissDirection.endToStart,
                               background: Container(
-                                color: AppColorScheme.of(context).lightGray,
+                                color: AppColorScheme.of(context).red,
                                 child: Align(
                                   alignment: Alignment.centerRight,
                                   child: Padding(
@@ -106,6 +106,7 @@ class _CurrentQueueState extends State<CurrentQueue> {
                                         defaultPagePadding),
                                     child: Icon(
                                       Icons.delete_outline,
+                                      color: AppColorScheme.of(context).darkRed,
                                     ),
                                   ),
                                 ),

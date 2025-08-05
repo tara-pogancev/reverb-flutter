@@ -48,7 +48,7 @@ final lightAppColorScheme = AppColorScheme(
   mediumGray: const Color.fromARGB(255, 113, 117, 133),
   darkGray: const Color.fromARGB(255, 79, 84, 99),
   black: const Color(0xFF181c27),
-  red: const Color(0xFFfcfdff),
+  red: const Color.fromARGB(255, 243, 157, 157),
   darkRed: const Color(0xFF621414),
   mangeta: const Color(0xFFe341d7),
   darkPurple: const Color(0xFF2d2c9f),
@@ -61,7 +61,7 @@ final darkAppColorScheme = AppColorScheme(
   darkGray: const Color(0xFFf3f4f6),
   black: const Color(0xFFfcfdff),
   red: const Color(0xFF621414),
-  darkRed: const Color(0xFFfcfdff),
+  darkRed: const Color.fromARGB(255, 252, 217, 217),
   mangeta: const Color(0xFFe341d7),
   darkPurple: const Color(0xFF2d2c9f),
 );
