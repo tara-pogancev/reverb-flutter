@@ -16,7 +16,7 @@ class GlowingCircleContainer extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: (context.getIsDarkTheme())
-                ? (color ?? AppColorScheme.of(context).mangeta).withOpacity(0.5)
+                ? (color ?? AppColorScheme.of(context).mangeta).withAlpha(127)
                 : Colors.transparent,
             blurRadius: 7, // changes position of shadow
           ),

@@ -78,7 +78,7 @@ class _SongCardState extends State<SongCard> {
           curve: Curves.easeInOut,
           duration: Durations.medium4,
           color: (isCurrent)
-              ? AppColorScheme.of(context).darkPurple.withOpacity(0.1)
+              ? AppColorScheme.of(context).darkPurple.withAlpha(25)
               : Colors.transparent,
           child: ListTile(
             title: Text(

@@ -68,7 +68,7 @@ class _GlowingSwitchState extends State<GlowingSwitch>
         ),
         boxShadow: [
           BoxShadow(
-              color: lightAppColorScheme.white.withOpacity(0.6),
+              color: lightAppColorScheme.white.withAlpha(153),
               blurRadius: 12,
               offset: Offset(0, 0)),
         ],

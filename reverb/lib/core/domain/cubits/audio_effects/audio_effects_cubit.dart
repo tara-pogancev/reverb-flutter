@@ -37,7 +37,9 @@ class AudioEffectsCubit extends HydratedCubit<AudioEffectsState> {
     try {
       final result = await platform
           .invokeMethod('removeReverb', {'audioSessionId': audioSessionId});
-      print(result);
+      if (kDebugMode) {
+        print("Reverb removed: $result");
+      }
       emit(state.copyWith(hasEcho: false));
     } catch (e) {
       if (kDebugMode) {

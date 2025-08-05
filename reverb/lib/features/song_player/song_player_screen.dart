@@ -58,7 +58,7 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
                     ),
                   ),
                   backgroundColor:
-                      AppColorScheme.of(context).white.withOpacity(0),
+                      AppColorScheme.of(context).white.withAlpha(0),
                   centerTitle: true,
                   title: Text(
                     Translations.of(context).player.nowPlaying,

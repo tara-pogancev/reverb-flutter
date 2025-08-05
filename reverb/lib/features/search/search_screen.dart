@@ -78,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     100,
                   ),
                 ),
-                fillColor: AppColorScheme.of(context).white.withOpacity(0.5),
+                fillColor: AppColorScheme.of(context).white.withAlpha(127),
                 contentPadding: EdgeInsets.symmetric(horizontal: 25),
                 label: Text(
                   Translations.of(context).search.search,

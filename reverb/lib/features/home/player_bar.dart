@@ -42,8 +42,7 @@ class _PlayerBarState extends State<PlayerBar> {
                     innerPadding: const EdgeInsets.symmetric(
                         vertical: defaultElementPadding,
                         horizontal: defaultBorderRadius),
-                    tintColor:
-                        AppColorScheme.of(context).black.withOpacity(0.85),
+                    tintColor: AppColorScheme.of(context).black.withAlpha(216),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(
                         defaultBorderRadius,

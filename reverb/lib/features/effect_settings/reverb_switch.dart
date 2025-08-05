@@ -53,7 +53,7 @@ class _ReverbSwitchState extends State<ReverbSwitch> {
             boxShadow: [
               BoxShadow(
                 color: (context.getIsDarkTheme())
-                    ? AppColorScheme.of(context).mangeta.withOpacity(0.3)
+                    ? AppColorScheme.of(context).mangeta.withAlpha(76)
                     : Colors.transparent,
                 blurRadius: 10,
               ),

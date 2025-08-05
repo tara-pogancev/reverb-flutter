@@ -22,7 +22,7 @@ class FilteredListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       appBar: AppBar(
-        backgroundColor: AppColorScheme.of(context).white.withOpacity(0.1),
+        backgroundColor: AppColorScheme.of(context).white.withAlpha(25),
         title: Text(title),
       ),
       child: Column(

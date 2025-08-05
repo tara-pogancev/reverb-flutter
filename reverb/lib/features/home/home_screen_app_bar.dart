@@ -28,7 +28,7 @@ class HomeScreenAppBar {
                 icon: Icon(Icons.tune)),
           ),
         ),
-        backgroundColor: AppColorScheme.of(context).white.withOpacity(0),
+        backgroundColor: AppColorScheme.of(context).white.withAlpha(0),
         title: Text(
           Translations.of(context).general.appName,
           style: AppTextStyles.of(context).title,

@@ -37,7 +37,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return AppScaffold(
       inclidePadding: true,
       appBar: AppBar(
-        backgroundColor: AppColorScheme.of(context).white.withOpacity(0.1),
+        backgroundColor: AppColorScheme.of(context).white.withAlpha(25),
         title: Text(Translations.of(context).settings.title),
       ),
       child: Column(
